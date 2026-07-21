@@ -1,4 +1,4 @@
-# Google Scholar–friendly GitHub Pages starter
+# GitHub Pages starter
 
 ## Before publishing
 
