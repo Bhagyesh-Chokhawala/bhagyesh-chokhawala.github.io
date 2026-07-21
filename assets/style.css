@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+html { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+body { margin: 0; color: #202124; background: #fff; }
+.container { width: min(900px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0 5rem; }
+.hero { padding-top: 8vh; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; margin: .35rem 0 1rem; }
+h2 { line-height: 1.25; }
+a { color: #174ea6; }
+.eyebrow, .meta { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; }
+.lead { font-size: 1.2rem; max-width: 750px; }
+.authors { font-size: 1.1rem; }
+.button { display: inline-block; padding: .7rem 1rem; border: 1px solid currentColor; border-radius: .35rem; text-decoration: none; font-weight: 700; }
+.back { display: inline-block; margin-bottom: 1.5rem; }
+.publication-card { border-top: 1px solid #dadce0; padding: 1.5rem 0; }
+.note { font-size: .9rem; }
+section { margin-top: 2.25rem; }
