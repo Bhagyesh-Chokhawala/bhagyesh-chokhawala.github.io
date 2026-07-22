@@ -1,14 +1,15 @@
-# GitHub Blog Stories page
+# Bhagyeshkumar Chokhawala — Personal Website
 
-Upload or replace:
+Welcome, and thank you for your interest.
 
-- `/blogs.html`
-- `/assets/style.css`
+This repository contains the source files for my personal GitHub Pages website. It shares information about my professional interests, research, publications, and writing.
 
-Optional integration:
+Please visit the website to explore the latest content:
 
-- Add the URL from `sitemap-blog-entry.xml` to `/sitemap.xml`.
-- Add the link from `navigation-blog-link.html` to the homepage navigation.
+**[Visit bhagyesh-chokhawala.github.io](https://bhagyesh-chokhawala.github.io/index.html)**
 
-The page lists the five stories currently visible on the author's Medium profile,
-sorted newest first. Update `blogs.html` whenever a new Medium story is published.
+## Contributions and Communication
+
+This is a personal website repository and is not accepting contributions, pull requests, or direct repository-based inquiries.
+
+To keep communication simple and ensure messages reach the right place, please use the options available through the website for all interactions. I appreciate your understanding and look forward to connecting with you there.
