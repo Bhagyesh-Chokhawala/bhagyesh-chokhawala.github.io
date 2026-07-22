@@ -2,50 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/publications.html</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/upcomingpublications.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/blogs.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/contact.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://bhagyesh-chokhawala.github.io/publications/CSCI-2025/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/publications/capability-centric-enterprise-architecture/</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/capability-centric-enterprise-architecture/capability-centric-enterprise-architecture.pdf</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/csci-2025/cognitive_bpm_integration_framework_csci_2025.pdf</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/spec-grounded-modernization-brownfield-software-systems/</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/spec-grounded-modernization-brownfield-software-systems/spec-grounded-modernization-brownfield-software-systems.pdf</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/ai-enterprise-architecture-bar-framework/</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/ai-enterprise-architecture-bar-framework/Impact_of_AI_on_Enterprise_Architecture_BAR_Framework.pdf</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/target-architecture-strategic-transition-framework/</loc>
-  </url>
-  <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/target-architecture-strategic-transition-framework/target-architecture-strategic-transition-framework.pdf</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bhagyesh-chokhawala.github.io/publications/digital-transformation-digitization-modernization-roi-framework/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bhagyesh-chokhawala.github.io/publications/digital-transformation-digitization-modernization-roi-framework/digital-transformation-digitization-modernization-roi-framework.pdf</loc>
+    <loc>https://bhagyesh-chokhawala.github.io/publications/target-architecture-strategic-transition-framework/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bhagyesh-chokhawala.github.io/publications/ai-enterprise-architecture-bar-framework/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bhagyesh-chokhawala.github.io/publications/spec-grounded-modernization-brownfield-software-systems/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

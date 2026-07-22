@@ -1,0 +1,16 @@
+{
+  "name": "Bhagyeshkumar Chokhawala Research Profile",
+  "short_name": "BC Research",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#174ea6",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

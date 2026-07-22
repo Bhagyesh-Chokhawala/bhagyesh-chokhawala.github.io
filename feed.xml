@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Blog Stories by Bhagyeshkumar Chokhawala</title>
+    <link>https://bhagyesh-chokhawala.github.io/blogs.html</link>
+    <description>Enterprise architecture, applied AI, modernization, and digital transformation stories.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Capability-Centric Enterprise Architecture for Business-Technology Alignment and AI Adoption</title>
+      <link>https://pub.towardsai.net/capability-centric-enterprise-architecture-for-business-technology-alignment-and-ai-adoption-c438abcee0e5</link>
+      <guid isPermaLink="true">https://pub.towardsai.net/capability-centric-enterprise-architecture-for-business-technology-alignment-and-ai-adoption-c438abcee0e5</guid>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Presents an integrated view of business capability maps, technical capability maps, implementation models, traceability, and governed AI adoption.</description>
+    </item>
+    <item>
+      <title>Spec-Grounded Modernization: Leveraging AI Specification Kits for Brownfield Software Systems</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/spec-grounded-modernization-leveraging-ai-specification-kits-for-brownfield-software-systems-e69bdaf04e32</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/spec-grounded-modernization-leveraging-ai-specification-kits-for-brownfield-software-systems-e69bdaf04e32</guid>
+      <pubDate>Fri, 31 Oct 2025 00:00:00 +0000</pubDate>
+      <description>Proposes architecture-aware modernization using recovered system context, structured requirements, AI-assisted specifications, planning, validation, and traceability.</description>
+    </item>
+    <item>
+      <title>From Hype to Strategy: Navigating AI Integration in the Modern Enterprise</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/impact-of-ai-on-enterprise-architecture-7fde90656989</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/impact-of-ai-on-enterprise-architecture-7fde90656989</guid>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <description>Examines how enterprise architects can align AI strategy, organizational readiness, human-AI collaboration, architecture, and responsible governance.</description>
+    </item>
+    <item>
+      <title>Target Architecture</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/target-architecture-b5191b15afb3</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/target-architecture-b5191b15afb3</guid>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0000</pubDate>
+      <description>Explains target architecture as a future-state blueprint connecting objectives, capabilities, technology, governance, investment, and transition roadmaps.</description>
+    </item>
+    <item>
+      <title>Digital Transformation vs. Digitization vs. Digital Modernization: Key ROI Factors to Consider</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/digital-transformation-vs-digitization-vs-digital-modernization-and-roi-factors-to-consider-8070de6c7e1b</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/digital-transformation-vs-digitization-vs-digital-modernization-and-roi-factors-to-consider-8070de6c7e1b</guid>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <description>Clarifies digitization, modernization, and transformation and discusses strategic fit, risk, cost, adoption, and ROI.</description>
+    </item>
+  </channel>
+</rss>

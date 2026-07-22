@@ -1,0 +1,18 @@
+# Bhagyeshkumar Chokhawala
+
+> Enterprise Architect and Applied AI Researcher.
+
+Canonical profile: https://bhagyesh-chokhawala.github.io/
+Publications: https://bhagyesh-chokhawala.github.io/publications.html
+Blog stories: https://bhagyesh-chokhawala.github.io/blogs.html
+Contact: https://bhagyesh-chokhawala.github.io/contact.html
+Google Scholar: https://scholar.google.com/citations?user=0yKHjlQAAAAJ&hl=en
+ORCID: https://orcid.org/0009-0001-5146-832X
+
+Primary topics:
+- Active Inference and Expected Free Energy
+- Explainable and Agentic AI
+- Business Process Management and Process Mining
+- Enterprise Architecture and Capability Mapping
+- AI Governance and Responsible Adoption
+- Transaction Integrity and Software Modernization
