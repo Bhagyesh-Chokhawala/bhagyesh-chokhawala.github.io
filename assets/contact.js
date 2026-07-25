@@ -3,16 +3,16 @@
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("contact-status");
+  const submitButton = form?.querySelector('button[type="submit"]');
 
-  if (!form) {
+  if (!form || !status || !submitButton) {
     return;
   }
 
-  const repositoryIssueUrl =
-    "https://github.com/Bhagyesh-Chokhawala/" +
-    "bhagyesh-chokhawala.github.io/issues/new";
+  const contactApiUrl =
+    "https://bhagyesh-contact-api.bhagyesh-chokhawala.workers.dev/contact";
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!form.reportValidity()) {
@@ -20,27 +20,56 @@
     }
 
     const data = new FormData(form);
-    const subject = String(data.get("subject") || "").trim();
-
-    const params = new URLSearchParams({
-      template: "contact.yml",
-      title: `[Contact]: ${subject}`,
+    const payload = {
       name: String(data.get("name") || "").trim(),
       organization: String(data.get("organization") || "").trim(),
       contact: String(data.get("contact") || "").trim(),
       topic: String(data.get("topic") || "").trim(),
-      message: String(data.get("message") || "").trim()
-    });
+      subject: String(data.get("subject") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+      publicConfirmation: data.get("public_confirmation") === "on",
+      website: String(data.get("website") || "").trim()
+    };
 
-    const issueUrl = `${repositoryIssueUrl}?${params.toString()}`;
-    const issueWindow = window.open(issueUrl, "_blank", "noopener,noreferrer");
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting…";
+    status.textContent = "Submitting your contact request…";
 
-    if (issueWindow) {
+    try {
+      const response = await fetch(contactApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      let result = {};
+
+      try {
+        result = await response.json();
+      } catch {
+        result = {};
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          result.error ||
+            "Unable to submit your contact request. Please try again."
+        );
+      }
+
+      form.reset();
       status.textContent =
-        "GitHub opened in a new tab. Review the request and submit the issue.";
-    } else {
+        result.message || "Your contact request was submitted successfully.";
+    } catch (error) {
       status.textContent =
-        "Your browser blocked the new tab. Please allow pop-ups and try again.";
+        error instanceof Error
+          ? error.message
+          : "Unable to submit your contact request. Please try again.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Contact";
     }
   });
 })();

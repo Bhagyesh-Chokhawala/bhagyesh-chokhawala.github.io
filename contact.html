@@ -13,6 +13,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/site.js" defer></script>
+  <script src="/assets/contact.js" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bhagyeshkumar Chokhawala Research Profile">
   <meta property="og:title" content="Contact Bhagyeshkumar Chokhawala | Research &amp; Architecture Collaboration">
@@ -34,7 +35,7 @@
   "@id": "https://bhagyesh-chokhawala.github.io/contact.html#contact",
   "name": "Contact Bhagyeshkumar Chokhawala",
   "url": "https://bhagyesh-chokhawala.github.io/contact.html",
-  "dateModified": "2026-07-22",
+  "dateModified": "2026-07-24",
   "about": {
     "@id": "https://bhagyesh-chokhawala.github.io/#person"
   }
@@ -101,7 +102,7 @@
 
           <div class="contact-social-links">
             <a
-              href="https://scholar.google.com/citations?user=0yKHjlQAAAAJ&hl=en"
+              href="https://scholar.google.com/citations?user=0yKHjlQAAAAJ&amp;hl=en"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -119,54 +120,152 @@
         </aside>
 
         <section class="contact-card" aria-labelledby="contact-options-heading">
-          <p class="eyebrow">Contact options</p>
-          <h2 id="contact-options-heading">Email or LinkedIn</h2>
+          <p class="eyebrow">Send a request</p>
+          <h2 id="contact-options-heading">Contact Form</h2>
 
           <p class="form-introduction">
-            The GitHub issue submission form is temporarily unavailable. Please
-            contact me directly by email or send a direct message on LinkedIn.
+            Complete the form to submit your request directly. You do not need
+            to visit or sign in to GitHub.
           </p>
 
-          <article class="contact-detail">
-            <h3>Email</h3>
-            <p>
+          <div class="privacy-notice" role="note">
+            <strong>Public notice:</strong>
+            Submissions are recorded as public GitHub issues. Do not include
+            confidential, proprietary, personal, security-sensitive, or
+            unpublished information.
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="field-grid">
+              <div class="form-field">
+                <label for="contact-name">Name</label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  maxlength="100"
+                  placeholder="Your name"
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="contact-organization">
+                  Organization <span class="optional">(optional)</span>
+                </label>
+                <input
+                  id="contact-organization"
+                  name="organization"
+                  type="text"
+                  autocomplete="organization"
+                  maxlength="150"
+                  placeholder="Organization or institution"
+                >
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="form-field">
+                <label for="contact-method">
+                  Public contact method <span class="optional">(optional)</span>
+                </label>
+                <input
+                  id="contact-method"
+                  name="contact"
+                  type="text"
+                  maxlength="200"
+                  placeholder="LinkedIn URL or public email"
+                  aria-describedby="contact-method-help"
+                >
+                <p id="contact-method-help" class="field-help">
+                  This information will be visible in the public contact issue.
+                </p>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-topic">Inquiry type</label>
+                <select id="contact-topic" name="topic" required>
+                  <option value="">Select an inquiry type</option>
+                  <option>Research collaboration</option>
+                  <option>Architecture advisory</option>
+                  <option>Speaking or conference</option>
+                  <option>Peer review or publication</option>
+                  <option>Professional networking</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-subject">Subject</label>
+              <input
+                id="contact-subject"
+                name="subject"
+                type="text"
+                required
+                maxlength="160"
+                placeholder="Brief subject for your request"
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="8"
+                required
+                maxlength="5000"
+                placeholder="Describe the opportunity, question, or collaboration idea."
+              ></textarea>
+            </div>
+
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input
+                id="contact-website"
+                name="website"
+                type="text"
+                autocomplete="off"
+                tabindex="-1"
+              >
+            </div>
+
+            <div class="form-consent">
+              <input
+                id="public-confirmation"
+                name="public_confirmation"
+                type="checkbox"
+                required
+              >
+              <label for="public-confirmation">
+                I understand that this request and the information entered
+                above will be publicly visible.
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="button contact-submit" type="submit">
+                Submit Contact
+              </button>
+              <p
+                class="form-status"
+                id="contact-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </form>
+
+          <noscript>
+            <p class="noscript-message">
+              JavaScript is required to submit this form. You may instead email
               <a href="mailto:bhagyesh.chokhawala@gmail.com">
                 bhagyesh.chokhawala@gmail.com
-              </a>
+              </a>.
             </p>
-          </article>
-
-          <article class="contact-detail">
-            <h3>LinkedIn Direct Message</h3>
-            <p>
-              Send a connection request or direct message through my LinkedIn
-              profile.
-            </p>
-          </article>
-
-          <div class="page-actions">
-            <a
-              class="button"
-              href="mailto:bhagyesh.chokhawala@gmail.com"
-            >
-              Send Email
-            </a>
-
-            <a
-              class="button button-secondary"
-              href="https://www.linkedin.com/in/bhagyeshchokhawala/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Message on LinkedIn
-            </a>
-          </div>
-
-          <div class="privacy-notice" role="note">
-            <strong>Privacy:</strong>
-            Please avoid sending confidential, proprietary, security-sensitive,
-            or unpublished information in an initial message.
-          </div>
+          </noscript>
         </section>
       </div>
     </section>
