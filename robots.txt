@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow:
 
 Sitemap: https://bhagyesh-chokhawala.github.io/sitemap.xml
