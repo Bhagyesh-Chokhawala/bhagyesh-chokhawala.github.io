@@ -120,7 +120,26 @@ a {
 }
 
 .qr-content p {
-  margin-bottom: 0;
+  margin-bottom: 0.75rem;
+}
+
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.share-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #5f6368;
+}
+
+.share-links .button {
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.35rem;
 }
 
 /* Publications page */
