@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentation Viewer — Outcome-Centric API Design</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .pdf-controls{margin:1rem 0}
+    canvas{border:1px solid #ddd;max-width:100%}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="/">Bhagyeshkumar Chokhawala</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/index.html">Home</a> <a href="/publications.html">Publications</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <header class="page-header">
+      <h1>Presentation Viewer</h1>
+      <p class="lead">Embedded PDF viewer using PDF.js. The PDF must be present at the expected path.</p>
+    </header>
+
+    <div class="pdf-controls">
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+      <span>Page: <span id="page_num">0</span> / <span id="page_count">0</span></span>
+      <label>Scale: <input id="scale" type="number" value="1.0" step="0.1" min="0.5" max="3"></label>
+    </div>
+    <canvas id="pdf-canvas"></canvas>
+    <p id="fallback" style="color:#666">If the PDF is missing, run the conversion script or place the PDF at the path: <code>/publications/serp-26/outcome_centric_api_design_conference_15min_v5_audio_embedded.pdf</code></p>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>© <span data-current-year>2026</span> Bhagyeshkumar Chokhawala.</p>
+    </div>
+  </footer>
+
+  <script src="/publications/serp-26/pdfjs/pdf.min.js"></script>
+  <script>
+    // PDF path (relative to site root)
+    const pdfPath = '/publications/serp-26/outcome_centric_api_design_conference_15min_v5_audio_embedded.pdf';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/publications/serp-26/pdfjs/pdf.worker.min.js';
+    const loadingTask = pdfjsLib.getDocument(pdfPath);
+    let pdfDoc = null, pageNum = 1, scale = parseFloat(document.getElementById('scale').value);
+    const canvas = document.getElementById('pdf-canvas');
+    const ctx = canvas.getContext('2d');
+
+    loadingTask.promise.then(function(pdf) {
+      pdfDoc = pdf;
+      document.getElementById('page_count').textContent = pdfDoc.numPages;
+      document.getElementById('page_num').textContent = pageNum;
+      renderPage(pageNum);
+    }).catch(function(err){
+      console.error('PDF load error', err);
+      document.getElementById('fallback').textContent = 'PDF not found at ' + pdfPath + ' — ' + err.message;
+    });
+
+    function renderPage(num){
+      pdfDoc.getPage(num).then(function(page){
+        const viewport = page.getViewport({scale: scale});
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        const renderContext = {canvasContext: ctx, viewport: viewport};
+        page.render(renderContext).promise.then(function(){
+          document.getElementById('page_num').textContent = num;
+        });
+      });
+    }
+
+    document.getElementById('prev').addEventListener('click', ()=>{
+      if(pageNum <= 1) return; pageNum--; renderPage(pageNum);
+    });
+    document.getElementById('next').addEventListener('click', ()=>{
+      if(pageNum >= pdfDoc.numPages) return; pageNum++; renderPage(pageNum);
+    });
+    document.getElementById('scale').addEventListener('change', (e)=>{
+      scale = parseFloat(e.target.value)||1.0; renderPage(pageNum);
+    });
+  </script>
+</body>
+</html>
