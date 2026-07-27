@@ -1,0 +1,8 @@
+{
+  "run_id": "demo-green",
+  "repository": "policy-repository/examples",
+  "ref": "compliant-api",
+  "commit": "demo",
+  "timestamp": "2026-07-27T09:20:21+00:00",
+  "workflow_url": ""
+}

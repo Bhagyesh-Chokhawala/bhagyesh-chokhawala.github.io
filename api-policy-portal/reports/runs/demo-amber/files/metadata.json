@@ -1,0 +1,8 @@
+{
+  "run_id": "demo-amber",
+  "repository": "policy-repository/examples",
+  "ref": "amber-api",
+  "commit": "demo",
+  "timestamp": "2026-07-27T09:20:22+00:00",
+  "workflow_url": ""
+}

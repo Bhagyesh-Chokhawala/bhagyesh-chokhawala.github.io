@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set page_depth = 0 %}
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="eyebrow">Central policy guidance and build evidence</span>
+    <h1>Design, validate, and govern enterprise APIs with visible release evidence.</h1>
+    <p>{{ policy.description }}</p>
+    <div class="actions">
+      <a class="button primary" href="testing-any-api/index.html">Test an API</a>
+      <a class="button" href="policies/index.html">Browse policy dimensions</a>
+      <a class="button" href="reports/index.html">View all reports</a>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="metric"><strong>{{ stats.total_runs }}</strong><span>Published runs</span></div>
+    <div class="metric green"><strong>{{ stats.green }}</strong><span>GREEN</span></div>
+    <div class="metric amber"><strong>{{ stats.amber }}</strong><span>AMBER</span></div>
+    <div class="metric red"><strong>{{ stats.red }}</strong><span>RED</span></div>
+  </div>
+</section>
+<section>
+  <div class="section-heading"><div><span class="eyebrow">Policy model</span><h2>Dimension-level gates</h2></div><a href="policies/index.html">Full catalog →</a></div>
+  <div class="card-grid">
+  {% for d in dimensions %}
+    <a class="card policy-card" href="policies/{{ d.key|replace('_','-') }}/index.html">
+      <div class="card-top"><span class="weight">{{ d.weight }}%</span><span class="owner">{{ d.owner }}</span></div>
+      <h3>{{ d.name }}</h3>
+      <p>{{ d.purpose }}</p>
+      <small>{{ d.gates|length }} gates · GREEN ≥ {{ d.traffic_light.green }}%</small>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+<section>
+  <div class="section-heading"><div><span class="eyebrow">Evidence</span><h2>Latest validation runs</h2></div><a href="reports/index.html">All runs →</a></div>
+  {% if runs %}
+  <div class="table-wrap"><table><thead><tr><th>Status</th><th>API</th><th>Repository / ref</th><th>Score</th><th>Timestamp</th></tr></thead><tbody>
+  {% for run in runs %}<tr><td><span class="status {{ run.traffic_light|lower }}">{{ run.traffic_light|icon }} {{ run.traffic_light }}</span></td><td><a href="{{ run.url }}">{{ run.api_name }}</a></td><td>{{ run.repository }}<br><small>{{ run.ref }}</small></td><td>{{ '%.1f'|format(run.score) }}</td><td>{{ run.timestamp|fmt_date }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% else %}<div class="empty">No validation runs have been published yet.</div>{% endif %}
+</section>
+{% endblock %}

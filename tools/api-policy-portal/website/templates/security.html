@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% set page_depth = 1 %}
+{% block content %}
+<div class="page-header"><span class="eyebrow">Safe evidence publishing</span><h1>Portal security and log hygiene</h1><p>Validation evidence is useful only when it can be published without exposing credentials or customer data.</p></div>
+<ul class="checklist"><li>Use synthetic or masked test data.</li><li>Never write access tokens, passwords, API keys, customer payloads, or private certificates to logs.</li><li>The portal sanitizes common credential patterns before publication, but source pipelines remain responsible for safe logging.</li><li>Keep private-repository portals private through GitHub Enterprise Pages, an internal static host, or authenticated object storage.</li><li>Set retention based on audit and regulatory requirements.</li><li>Do not publish raw production traces unless reviewed and de-identified.</li></ul>
+<h2>Published artifacts</h2><p>The portal publishes sanitized copies of text-based logs and reports. Binary artifacts are copied as supplied; teams should avoid uploading secrets or production data in binary attachments.</p>
+{% endblock %}

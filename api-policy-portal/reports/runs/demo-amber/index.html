@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validation run — customer-disconnect-api-review-needed · Outcome-Centric API Policy Portal</title>
+  <meta name="description" content="Central guidance, dimension-level policy gates, validation logs, and compliance reports.">
+  <link rel="stylesheet" href="../../../assets/styles.css">
+  <script defer src="../../../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../../../index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>Outcome-Centric API Policy Portal</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="" href="../../../index.html">Home</a>
+    <a class="" href="../../../policies/index.html">Policies</a>
+    <a class="active" href="../../../reports/index.html">Reports</a>
+    <a class="" href="../../../testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+<div class="breadcrumbs"><a href="../../index.html">Reports</a> / customer-disconnect-api-review-needed / demo-amber</div>
+<div class="run-header amber"><div><span class="status amber">🟠 AMBER</span><h1>customer-disconnect-api-review-needed</h1><p>REMEDIATION OR RISK ACCEPTANCE REQUIRED</p></div><div class="score"><strong>98.3</strong><span>Required 90.0</span></div></div>
+<div class="metadata-grid"><div><span>Repository</span><strong>policy-repository/examples</strong></div><div><span>Ref</span><strong>amber-api</strong></div><div><span>Commit</span><code>demo</code></div><div><span>Timestamp</span><strong>2026-07-27 09:20:22 UTC</strong></div></div>
+<h2>Dimension traffic lights</h2>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Dimension</th><th>Owner</th><th>Score</th><th>Gates</th><th>Failed gates</th></tr></thead><tbody>
+<tr><td><span class="status green">🟢 GREEN</span></td><td>Business outcome and capability alignment</td><td>Enterprise Architecture</td><td>100.0%</td><td>5/5</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Specification and data-contract quality</td><td>API Platform</td><td>100.0%</td><td>5/5</td><td>—</td></tr><tr><td><span class="status amber">🟠 AMBER</span></td><td>Lean API and resource design</td><td>API Design Council</td><td>83.3%</td><td>5/6</td><td>LEAN-004</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Security and role-aware authorization</td><td>Security Architecture</td><td>100.0%</td><td>6/6</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>NoSQL transactional and data integrity</td><td>Data and Domain Architecture</td><td>100.0%</td><td>9/9</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Cross-layer observability and auditability</td><td>SRE and Observability</td><td>100.0%</td><td>6/6</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Testing automation and mock coverage</td><td>Quality Engineering</td><td>100.0%</td><td>4/4</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Health and business-impact exposure</td><td>SRE and Operations</td><td>100.0%</td><td>6/6</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>AI, MCP, and Agent-to-Agent governance</td><td>AI Platform Governance</td><td>100.0%</td><td>2/2</td><td>—</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td>Lifecycle, versioning, and reuse</td><td>API Product Management</td><td>100.0%</td><td>4/4</td><td>—</td></tr></tbody></table></div>
+<h2>Gate findings</h2>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Dimension</th><th>Severity</th><th>Blocking</th><th>Finding</th></tr></thead><tbody><tr><td><code>LEAN-004</code></td><td>lean_resource_design</td><td><span class="severity high">HIGH</span></td><td>No</td><td>Payload is right-sized</td></tr></tbody></table></div><h2>Artifacts and reports</h2><div class="artifact-grid"><a class="artifact" href="files/metadata.json"><span>JSON</span><strong>metadata.json</strong><small>Open or download</small></a><a class="artifact" href="files/policy-exit-code.txt"><span>TXT</span><strong>policy-exit-code.txt</strong><small>Open or download</small></a><a class="artifact" href="files/policy-report.json"><span>JSON</span><strong>policy-report.json</strong><small>Open or download</small></a><a class="artifact" href="files/policy-report.md"><span>MD</span><strong>policy-report.md</strong><small>Open or download</small></a><a class="artifact" href="files/policy-validation.log"><span>LOG</span><strong>policy-validation.log</strong><small>Open or download</small></a><a class="artifact" href="files/test-exit-code.txt"><span>TXT</span><strong>test-exit-code.txt</strong><small>Open or download</small></a><a class="artifact" href="files/test-results.xml"><span>XML</span><strong>test-results.xml</strong><small>Open or download</small></a><a class="artifact" href="files/tests.log"><span>LOG</span><strong>tests.log</strong><small>Open or download</small></a></div>
+<h2>Testing and validation logs</h2><details class="log" open><summary>policy-exit-code.txt</summary><pre>1
+</pre></details><details class="log" open><summary>policy-validation.log</summary><pre># API Policy Validation: customer-disconnect-api-review-needed
+
+&gt; 🟠 **AMBER — REMEDIATION OR RISK ACCEPTANCE REQUIRED**
+
+- **Policy repository version:** 3.0.0
+- **Risk tier:** high
+- **Weighted score:** 98.3/100
+- **Required score:** 90.0
+
+## Dimension traffic lights
+
+| Light | Dimension | Owner | Score | Weight | Gates | Failed gates |
+|---|---|---|---:|---:|---:|---|
+| 🟢 GREEN | Business outcome and capability alignment | Enterprise Architecture | 100.0% | 10.0 | 5/5 | — |
+| 🟢 GREEN | Specification and data-contract quality | API Platform | 100.0% | 15.0 | 5/5 | — |
+| 🟠 AMBER | Lean API and resource design | API Design Council | 83.3% | 10.0 | 5/6 | LEAN-004 |
+| 🟢 GREEN | Security and role-aware authorization | Security Architecture | 100.0% | 15.0 | 6/6 | — |
+| 🟢 GREEN | NoSQL transactional and data integrity | Data and Domain Architecture | 100.0% | 15.0 | 9/9 | — |
+| 🟢 GREEN | Cross-layer observability and auditability | SRE and Observability | 100.0% | 10.0 | 6/6 | — |
+| 🟢 GREEN | Testing automation and mock coverage | Quality Engineering | 100.0% | 10.0 | 4/4 | — |
+| 🟢 GREEN | Health and business-impact exposure | SRE and Operations | 100.0% | 5.0 | 6/6 | — |
+| 🟢 GREEN | AI, MCP, and Agent-to-Agent governance | AI Platform Governance | 100.0% | 5.0 | 2/2 | — |
+| 🟢 GREEN | Lifecycle, versioning, and reuse | API Product Management | 100.0% | 5.0 | 4/4 | — |
+
+## Gate findings
+
+| Rule | Dimension | Severity | Blocking | Finding |
+|---|---|---|---|---|
+| LEAN-004 | lean_resource_design | HIGH | No | Payload is right-sized |
+
+</pre></details><details class="log" open><summary>test-exit-code.txt</summary><pre>0
+</pre></details><details class="log" open><summary>tests.log</summary><pre>......                                                                   [100%]
+</pre></details></main>
+<footer>
+  <span>Generated 2026-07-27T09:20:23+00:00</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+scenarios:
+  - {name: eligible self-service disconnect, expectedStatus: ACCEPTED}
+  - {name: delegated agent disconnect, expectedStatus: ACCEPTED}
+  - {name: stale aggregate version, expectedStatus: CONFLICT}
+  - {name: dependency unavailable, expectedStatus: ACTION_REQUIRED}
+  - {name: duplicate idempotency key, expectedBehavior: return-original-request}
+  - {name: projection lag, expectedIntegrityStatus: CONVERGING}

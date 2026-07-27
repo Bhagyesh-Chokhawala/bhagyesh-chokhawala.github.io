@@ -1,0 +1,152 @@
+name: Validate External API and Publish Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      api_repository:
+        description: GitHub repository in owner/name format
+        required: true
+        type: string
+      api_ref:
+        description: Branch, tag, or commit
+        required: true
+        default: main
+        type: string
+      api_path:
+        description: Path containing api.yaml within the target repository
+        required: true
+        default: .
+        type: string
+      test_command:
+        description: Command executed inside the target repository
+        required: true
+        default: pytest -q
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out policy repository
+        uses: actions/checkout@v4
+        with:
+          path: policy
+          fetch-depth: 0
+
+      - name: Check out target API repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.api_repository }}
+          ref: ${{ inputs.api_ref }}
+          path: target-api
+          token: ${{ secrets.API_REPO_TOKEN || github.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install central validator
+        run: pip install -e "policy[dev]"
+
+      - name: Create run identity
+        id: run
+        shell: bash
+        run: |
+          repo_slug="$(echo '${{ inputs.api_repository }}' | tr '/ ' '--')"
+          run_id="$(date -u +%Y%m%dT%H%M%SZ)-${repo_slug}-${GITHUB_RUN_NUMBER}"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          mkdir -p "policy/validation-results/$run_id"
+
+      - name: Execute API tests and retain full log
+        id: tests
+        shell: bash
+        env:
+          POLICY_RUN_DIR: ${{ github.workspace }}/policy/validation-results/${{ steps.run.outputs.run_id }}
+        working-directory: target-api
+        run: |
+          set +e
+          bash -lc "${{ inputs.test_command }}" 2>&1 | tee "$POLICY_RUN_DIR/tests.log"
+          exit_code=${PIPESTATUS[0]}
+          echo "$exit_code" > "$POLICY_RUN_DIR/test-exit-code.txt"
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          for folder in reports test-results coverage; do
+            if [ -d "$folder" ]; then cp -R "$folder" "$POLICY_RUN_DIR/$folder"; fi
+          done
+          exit 0
+
+      - name: Execute all dimension-level policy gates
+        id: policy
+        shell: bash
+        working-directory: policy
+        run: |
+          set +e
+          api-standards validate "../target-api/${{ inputs.api_path }}" \
+            --json-report "validation-results/${{ steps.run.outputs.run_id }}/policy-report.json" \
+            --markdown-report "validation-results/${{ steps.run.outputs.run_id }}/policy-report.md" \
+            2>&1 | tee "validation-results/${{ steps.run.outputs.run_id }}/policy-validation.log"
+          exit_code=${PIPESTATUS[0]}
+          echo "$exit_code" > "validation-results/${{ steps.run.outputs.run_id }}/policy-exit-code.txt"
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Write report metadata
+        env:
+          RUN_ID: ${{ steps.run.outputs.run_id }}
+          API_REPOSITORY: ${{ inputs.api_repository }}
+          API_REF: ${{ inputs.api_ref }}
+        working-directory: policy
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          run_id = os.environ["RUN_ID"]
+          metadata = {
+              "run_id": run_id,
+              "repository": os.environ["API_REPOSITORY"],
+              "ref": os.environ["API_REF"],
+              "commit": os.environ["GITHUB_SHA"],
+              "timestamp": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+              "workflow_url": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}"
+          }
+          Path(f"validation-results/{run_id}/metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+          PY
+
+      - name: Restore prior report history
+        working-directory: policy
+        run: |
+          git fetch origin gh-pages:gh-pages || true
+          if git show-ref --verify --quiet refs/heads/gh-pages; then git worktree add ../previous-site gh-pages; fi
+
+      - name: Build portal with complete run history
+        working-directory: policy
+        shell: bash
+        run: |
+          previous_args=()
+          if [ -d ../previous-site ]; then previous_args=(--previous-site ../previous-site); fi
+          api-standards portal build --results validation-results --output public "${previous_args[@]}"
+
+      - name: Upload run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-validation-${{ steps.run.outputs.run_id }}
+          path: policy/validation-results/${{ steps.run.outputs.run_id }}/
+          retention-days: 90
+
+      - name: Publish updated portal
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: policy/public
+          publish_branch: gh-pages
+          force_orphan: true
+
+      - name: Fail workflow when tests or policy gates fail
+        if: steps.tests.outputs.exit_code != '0' || steps.policy.outputs.exit_code != '0'
+        run: exit 1

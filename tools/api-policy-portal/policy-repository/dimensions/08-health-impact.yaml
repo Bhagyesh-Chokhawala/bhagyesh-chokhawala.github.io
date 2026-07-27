@@ -1,0 +1,51 @@
+dimension:
+  key: health_impact
+  name: Health and business-impact exposure
+  weight: 5
+  owner: SRE and Operations
+  purpose: Requires technical readiness plus dependency, capability, integrity, and
+    consumer-impact visibility.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: HLTH-001
+    title: Liveness endpoint is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: health.live
+  - id: HLTH-002
+    title: Readiness endpoint is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: health.ready
+  - id: HLTH-003
+    title: Dependency health endpoint is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: health.dependencies
+  - id: HLTH-004
+    title: Capability health endpoint is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: health.capabilities
+  - id: HLTH-005
+    title: Business-impact endpoint is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: health.impact
+  - id: HLTH-006
+    title: Required health paths exist in OpenAPI
+    severity: HIGH
+    blocking: false
+    evaluator: health_paths

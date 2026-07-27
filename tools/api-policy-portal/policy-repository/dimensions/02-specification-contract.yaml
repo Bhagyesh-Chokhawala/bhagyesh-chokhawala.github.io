@@ -1,0 +1,44 @@
+dimension:
+  key: specification_contract
+  name: Specification and data-contract quality
+  weight: 15
+  owner: API Platform
+  purpose: Makes the machine-readable API specification the authoritative build and
+    release contract.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: SPEC-001
+    title: OpenAPI file exists
+    severity: CRITICAL
+    blocking: true
+    evaluator: file_exists
+    args:
+      path: contracts.openapi
+    evidence: OpenAPI file
+  - id: SPEC-002
+    title: OpenAPI structure is valid
+    severity: CRITICAL
+    blocking: true
+    evaluator: openapi_structural
+    evidence: OpenAPI document
+  - id: SPEC-003
+    title: Backward compatibility is declared
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: contracts.backward_compatibility
+  - id: SPEC-004
+    title: Standard error model is declared
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: contracts.error_model
+  - id: SPEC-005
+    title: Security scheme is declared
+    severity: CRITICAL
+    blocking: true
+    evaluator: openapi_security

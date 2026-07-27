@@ -1,0 +1,16 @@
+{% extends "base.html" %}{% set page_depth = 1 %}
+{% block content %}
+<div class="page-header"><span class="eyebrow">Developer onboarding</span><h1>Getting started</h1><p>Install the central validator, inspect the policy catalog, validate an API repository, and publish the result to the portal.</p></div>
+<div class="steps">
+<section class="step"><span>1</span><div><h2>Install</h2><pre><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"</code></pre></div></section>
+<section class="step"><span>2</span><div><h2>Inspect policies</h2><pre><code>api-standards catalog</code></pre></div></section>
+<section class="step"><span>3</span><div><h2>Validate a target API</h2><pre><code>api-standards validate /path/to/my-api \
+  --json-report validation-results/my-run/policy-report.json \
+  --markdown-report validation-results/my-run/policy-report.md</code></pre></div></section>
+<section class="step"><span>4</span><div><h2>Build the portal</h2><pre><code>api-standards portal build \
+  --results validation-results \
+  --output public</code></pre><p>Open <code>public/index.html</code> or run <code>api-standards portal serve --directory public</code>.</p></div></section>
+</div>
+{% endblock %}

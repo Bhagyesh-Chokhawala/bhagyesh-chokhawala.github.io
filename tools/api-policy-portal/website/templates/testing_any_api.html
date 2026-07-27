@@ -1,0 +1,42 @@
+{% extends "base.html" %}{% set page_depth = 1 %}
+{% block content %}
+<div class="page-header"><span class="eyebrow">End-to-end guidance</span><h1>How to test any API</h1><p>A target repository supplies design and test evidence. The central policy repository evaluates it, generates traffic-light reports, and publishes sanitized logs.</p></div>
+<h2>Required target repository structure</h2>
+<pre><code>my-api/
+├── api.yaml
+├── openapi.yaml
+├── mocks/scenarios.yaml
+└── tests/
+    ├── contract/
+    ├── security/
+    └── failure/</code></pre>
+<h2>Minimum workflow</h2>
+<ol class="numbered"><li>Add <code>api.yaml</code> using the compliant example as a template.</li><li>Reference the API's OpenAPI specification and evidence paths.</li><li>Run the API's real tests and capture the console output and JUnit report.</li><li>Run the policy validator and store JSON, Markdown, and console logs in one run directory.</li><li>Build or deploy the portal so users can inspect the evidence.</li></ol>
+<h2>Example run bundle</h2>
+<pre><code>validation-results/2026-07-27-order-api-main-abc123/
+├── metadata.json
+├── tests.log
+├── test-results.xml
+├── policy-validation.log
+├── policy-report.json
+└── policy-report.md</code></pre>
+<h2>Capture logs locally</h2>
+<pre><code>RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-order-api"
+RUN_DIR="validation-results/$RUN_ID"
+mkdir -p "$RUN_DIR"
+
+set +e
+pytest /path/to/my-api --junitxml "$RUN_DIR/test-results.xml" \
+  2>&1 | tee "$RUN_DIR/tests.log"
+TEST_EXIT=${PIPESTATUS[0]}
+
+api-standards validate /path/to/my-api \
+  --json-report "$RUN_DIR/policy-report.json" \
+  --markdown-report "$RUN_DIR/policy-report.md" \
+  2>&1 | tee "$RUN_DIR/policy-validation.log"
+POLICY_EXIT=${PIPESTATUS[0]}
+set -e</code></pre>
+<div class="callout"><strong>Important:</strong> The policy validator checks declared evidence and architecture gates. It does not replace unit, contract, integration, security, performance, or failure-path execution.</div>
+<h2>Traffic-light meaning</h2>
+<div class="traffic-explainer"><div class="green"><strong>🟢 GREEN</strong><span>Release eligible</span></div><div class="amber"><strong>🟠 AMBER</strong><span>Remediation or risk acceptance</span></div><div class="red"><strong>🔴 RED</strong><span>Release blocked</span></div></div>
+{% endblock %}

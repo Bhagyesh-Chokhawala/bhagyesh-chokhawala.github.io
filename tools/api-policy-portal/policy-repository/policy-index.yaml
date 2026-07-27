@@ -1,0 +1,54 @@
+policy_repository:
+  name: Outcome-Centric API Policy Repository
+  version: 3.0.0
+  description: Central build-time API policies and release gates, separated by framework
+    dimension.
+  default_minimum_score: 90
+  traffic_lights:
+    green:
+      minimum_score: 90
+      meaning: All mandatory gates pass; production release approved.
+    amber:
+      minimum_score: 70
+      meaning: No critical blocker, but remediation or risk acceptance is required.
+    red:
+      minimum_score: 0
+      meaning: Critical/blocking gate failed or score is below the amber threshold.
+  risk_tiers:
+    critical:
+      minimum_score: 95
+    high:
+      minimum_score: 90
+    medium:
+      minimum_score: 80
+    low:
+      minimum_score: 70
+  shared_settings:
+    prohibited_path_terms:
+    - screen
+    - page
+    - button
+    - table
+    - procedure
+    - storedproc
+    required_observability_headers:
+    - traceparent
+    - X-Correlation-ID
+    - X-Business-Transaction-ID
+    required_health_paths:
+    - /health/live
+    - /health/ready
+    - /health/dependencies
+    - /health/capabilities
+    - /health/impact
+  dimensions:
+  - file: dimensions/01-outcome-capability.yaml
+  - file: dimensions/02-specification-contract.yaml
+  - file: dimensions/03-lean-resource-design.yaml
+  - file: dimensions/04-security-authorization.yaml
+  - file: dimensions/05-nosql-integrity.yaml
+  - file: dimensions/06-observability-audit.yaml
+  - file: dimensions/07-testing-mocking.yaml
+  - file: dimensions/08-health-impact.yaml
+  - file: dimensions/09-ai-mcp-a2a.yaml
+  - file: dimensions/10-lifecycle-reuse.yaml

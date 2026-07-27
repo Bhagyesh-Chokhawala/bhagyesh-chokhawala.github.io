@@ -1,0 +1,18 @@
+api:
+  name: disconnect-screen-api
+  version: v1
+  layer: experience
+  business_outcome: Update screen.
+  capability: UI
+  risk_tier: high
+  owners: {business: '', technical: UI Team}
+  consumers: []
+contracts: {openapi: missing.yaml, backward_compatibility: false, error_model: false}
+lean: {resource_oriented: false, screen_specific: true, collection_detail_separated: false, payload_right_sized: false, reusable: false}
+security: {authentication: '', actor_subject_model: false, object_level_authorization: false, policy_as_code: false, acting_modes: []}
+integrity: {nosql: true, aggregate_owner: '', single_writer: false, concurrency_control: '', idempotency: false, outbox_inbox: false, projection_freshness: false, reconciliation: false, saga_or_compensation: false}
+observability: {traceparent: false, correlation_id: false, business_transaction_id: false, structured_logs: false, audit: false}
+health: {}
+ai: {mcp: {enabled: true}}
+testing: {contract_tests: missing, authorization_tests: missing, failure_path_tests: missing, mock_scenarios: missing.yaml}
+lifecycle: {}

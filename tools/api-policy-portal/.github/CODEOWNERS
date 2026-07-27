@@ -1,0 +1,17 @@
+/policy-repository/policy-index.yaml @architecture-team @api-platform-team
+/policy-repository/dimensions/01-* @architecture-team
+/policy-repository/dimensions/02-* @api-platform-team
+/policy-repository/dimensions/03-* @api-platform-team @architecture-team
+/policy-repository/dimensions/04-* @security-team
+/policy-repository/dimensions/05-* @data-architecture-team @architecture-team
+/policy-repository/dimensions/06-* @sre-team
+/policy-repository/dimensions/07-* @quality-engineering-team
+/policy-repository/dimensions/08-* @sre-team @operations-team
+/policy-repository/dimensions/09-* @ai-platform-team @security-team
+/policy-repository/dimensions/10-* @api-product-team
+/src/api_build_standards/ @api-platform-team
+/.github/workflows/ @devsecops-team
+/website/ @architecture-team @api-platform-team @developer-experience-team
+/src/api_build_standards/portal.py @api-platform-team @developer-experience-team
+/.github/workflows/publish-portal.yml @devsecops-team @developer-experience-team
+/.github/workflows/validate-external-api.yml @devsecops-team @architecture-team

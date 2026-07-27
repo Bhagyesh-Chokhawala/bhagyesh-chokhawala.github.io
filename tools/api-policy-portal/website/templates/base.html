@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }} · {{ site_title }}</title>
+  <meta name="description" content="{{ site_description }}">
+  <link rel="stylesheet" href="{{ '../' * (page_depth|default(0)) }}assets/styles.css">
+  <script defer src="{{ '../' * (page_depth|default(0)) }}assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{{ '../' * (page_depth|default(0)) }}index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>{{ site_title }}</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="{{ 'active' if active == 'home' else '' }}" href="{{ '../' * (page_depth|default(0)) }}index.html">Home</a>
+    <a class="{{ 'active' if active == 'policies' else '' }}" href="{{ '../' * (page_depth|default(0)) }}policies/index.html">Policies</a>
+    <a class="{{ 'active' if active == 'reports' else '' }}" href="{{ '../' * (page_depth|default(0)) }}reports/index.html">Reports</a>
+    <a class="{{ 'active' if active == 'guidance' else '' }}" href="{{ '../' * (page_depth|default(0)) }}testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  <span>Generated {{ generated_at }}</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

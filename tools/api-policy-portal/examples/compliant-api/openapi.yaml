@@ -1,0 +1,41 @@
+openapi: 3.1.0
+info: {title: Customer Disconnect API, version: 1.0.0}
+security:
+  - oauth2: [disconnect:write]
+paths:
+  /customer-disconnect-requests:
+    post:
+      operationId: createDisconnectRequest
+      parameters:
+        - {$ref: '#/components/parameters/Traceparent'}
+        - {$ref: '#/components/parameters/CorrelationId'}
+        - {$ref: '#/components/parameters/BusinessTransactionId'}
+        - {$ref: '#/components/parameters/IdempotencyKey'}
+      responses: {'202': {description: Accepted}}
+  /customer-disconnect-requests/{requestId}/status:
+    get:
+      operationId: getDisconnectStatus
+      parameters:
+        - {name: requestId, in: path, required: true, schema: {type: string}}
+        - {$ref: '#/components/parameters/Traceparent'}
+        - {$ref: '#/components/parameters/CorrelationId'}
+        - {$ref: '#/components/parameters/BusinessTransactionId'}
+      responses: {'200': {description: Status}}
+  /health/live: {get: {responses: {'200': {description: Alive}}}}
+  /health/ready: {get: {responses: {'200': {description: Ready}}}}
+  /health/dependencies: {get: {responses: {'200': {description: Dependencies}}}}
+  /health/capabilities: {get: {responses: {'200': {description: Capabilities}}}}
+  /health/impact: {get: {responses: {'200': {description: Impact}}}}
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://identity.example.com/oauth/token
+          scopes: {disconnect:write: Create disconnect transaction}
+  parameters:
+    Traceparent: {name: traceparent, in: header, required: true, schema: {type: string}}
+    CorrelationId: {name: X-Correlation-ID, in: header, required: true, schema: {type: string}}
+    BusinessTransactionId: {name: X-Business-Transaction-ID, in: header, required: true, schema: {type: string}}
+    IdempotencyKey: {name: Idempotency-Key, in: header, required: true, schema: {type: string}}

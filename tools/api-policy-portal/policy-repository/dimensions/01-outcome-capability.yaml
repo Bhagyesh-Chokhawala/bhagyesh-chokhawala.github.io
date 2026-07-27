@@ -1,0 +1,51 @@
+dimension:
+  key: outcome_capability
+  name: Business outcome and capability alignment
+  weight: 10
+  owner: Enterprise Architecture
+  purpose: Ensures every API has a stable business purpose, domain ownership, and
+    identified consumers.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: OUT-001
+    title: Business outcome is defined
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: api.business_outcome
+    evidence: api.yaml
+  - id: OUT-002
+    title: Domain capability is defined
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: api.capability
+    evidence: api.yaml
+  - id: OUT-003
+    title: Business owner is defined
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: api.owners.business
+    evidence: api.yaml
+  - id: OUT-004
+    title: Technical owner is defined
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: api.owners.technical
+    evidence: api.yaml
+  - id: OUT-005
+    title: At least one consumer is identified
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: api.consumers
+    evidence: api.yaml

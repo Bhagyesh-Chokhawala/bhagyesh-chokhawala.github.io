@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validation reports · Outcome-Centric API Policy Portal</title>
+  <meta name="description" content="Central guidance, dimension-level policy gates, validation logs, and compliance reports.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>Outcome-Centric API Policy Portal</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="" href="../index.html">Home</a>
+    <a class="" href="../policies/index.html">Policies</a>
+    <a class="active" href="../reports/index.html">Reports</a>
+    <a class="" href="../testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+<div class="page-header"><span class="eyebrow">Validation evidence</span><h1>Testing logs and compliance reports</h1><p>Browse every retained validation run, inspect dimension traffic lights, and open sanitized test logs and policy reports.</p></div>
+<div class="filter-bar"><input id="report-search" type="search" placeholder="Filter by API, repository, ref, or status"><select id="status-filter"><option value="">All statuses</option><option>GREEN</option><option>AMBER</option><option>RED</option></select></div>
+<div class="table-wrap"><table id="report-table"><thead><tr><th>Status</th><th>API</th><th>Repository</th><th>Ref / commit</th><th>Score</th><th>Timestamp</th></tr></thead><tbody>
+<tr data-status="AMBER" data-search="customer-disconnect-api-review-needed policy-repository/examples amber-api demo AMBER"><td><span class="status amber">🟠 AMBER</span></td><td><a href="runs/demo-amber/index.html">customer-disconnect-api-review-needed</a><br><small>REMEDIATION OR RISK ACCEPTANCE REQUIRED</small></td><td>policy-repository/examples</td><td>amber-api<br><code>demo</code></td><td>98.3 / 90.0</td><td>2026-07-27 09:20:22 UTC</td></tr><tr data-status="RED" data-search="disconnect-screen-api policy-repository/examples noncompliant-api demo RED"><td><span class="status red">🔴 RED</span></td><td><a href="runs/demo-red/index.html">disconnect-screen-api</a><br><small>REJECTED - RELEASE BLOCKED</small></td><td>policy-repository/examples</td><td>noncompliant-api<br><code>demo</code></td><td>8.5 / 90.0</td><td>2026-07-27 09:20:22 UTC</td></tr><tr data-status="GREEN" data-search="customer-disconnect-api policy-repository/examples compliant-api demo GREEN"><td><span class="status green">🟢 GREEN</span></td><td><a href="runs/demo-green/index.html">customer-disconnect-api</a><br><small>APPROVED</small></td><td>policy-repository/examples</td><td>compliant-api<br><code>demo</code></td><td>100.0 / 90.0</td><td>2026-07-27 09:20:21 UTC</td></tr></tbody></table></div>
+</main>
+<footer>
+  <span>Generated 2026-07-27T09:20:23+00:00</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

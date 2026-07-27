@@ -1,0 +1,39 @@
+dimension:
+  key: lifecycle_reuse
+  name: Lifecycle, versioning, and reuse
+  weight: 5
+  owner: API Product Management
+  purpose: Ensures APIs can evolve predictably, be deprecated safely, and deliver
+    portfolio reuse.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: LIFE-001
+    title: Versioning strategy is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: lifecycle.versioning
+  - id: LIFE-002
+    title: Deprecation policy is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: lifecycle.deprecation
+  - id: LIFE-003
+    title: Compatibility policy is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: lifecycle.compatibility
+  - id: LIFE-004
+    title: Reuse target is declared
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: lifecycle.reuse_target

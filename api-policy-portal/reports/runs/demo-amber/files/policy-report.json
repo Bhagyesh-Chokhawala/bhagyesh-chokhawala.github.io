@@ -1,0 +1,143 @@
+{
+  "api_name": "customer-disconnect-api-review-needed",
+  "policy_version": "3.0.0",
+  "risk_tier": "high",
+  "minimum_score": 90.0,
+  "score": 98.3,
+  "traffic_light": "AMBER",
+  "decision": "REMEDIATION OR RISK ACCEPTANCE REQUIRED",
+  "passed": false,
+  "dimensions": [
+    {
+      "key": "outcome_capability",
+      "label": "Business outcome and capability alignment",
+      "owner": "Enterprise Architecture",
+      "weight": 10.0,
+      "earned": 10.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 5,
+      "checks_total": 5,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "specification_contract",
+      "label": "Specification and data-contract quality",
+      "owner": "API Platform",
+      "weight": 15.0,
+      "earned": 15.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 5,
+      "checks_total": 5,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "lean_resource_design",
+      "label": "Lean API and resource design",
+      "owner": "API Design Council",
+      "weight": 10.0,
+      "earned": 8.33,
+      "raw_score": 83.3,
+      "traffic_light": "AMBER",
+      "checks_passed": 5,
+      "checks_total": 6,
+      "failed_gate_ids": [
+        "LEAN-004"
+      ]
+    },
+    {
+      "key": "security_authorization",
+      "label": "Security and role-aware authorization",
+      "owner": "Security Architecture",
+      "weight": 15.0,
+      "earned": 15.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 6,
+      "checks_total": 6,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "nosql_integrity",
+      "label": "NoSQL transactional and data integrity",
+      "owner": "Data and Domain Architecture",
+      "weight": 15.0,
+      "earned": 15.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 9,
+      "checks_total": 9,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "observability_audit",
+      "label": "Cross-layer observability and auditability",
+      "owner": "SRE and Observability",
+      "weight": 10.0,
+      "earned": 10.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 6,
+      "checks_total": 6,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "testing_mocking",
+      "label": "Testing automation and mock coverage",
+      "owner": "Quality Engineering",
+      "weight": 10.0,
+      "earned": 10.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "health_impact",
+      "label": "Health and business-impact exposure",
+      "owner": "SRE and Operations",
+      "weight": 5.0,
+      "earned": 5.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 6,
+      "checks_total": 6,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "ai_mcp_a2a",
+      "label": "AI, MCP, and Agent-to-Agent governance",
+      "owner": "AI Platform Governance",
+      "weight": 5.0,
+      "earned": 5.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 2,
+      "checks_total": 2,
+      "failed_gate_ids": []
+    },
+    {
+      "key": "lifecycle_reuse",
+      "label": "Lifecycle, versioning, and reuse",
+      "owner": "API Product Management",
+      "weight": 5.0,
+      "earned": 5.0,
+      "raw_score": 100.0,
+      "traffic_light": "GREEN",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "failed_gate_ids": []
+    }
+  ],
+  "findings": [
+    {
+      "rule_id": "LEAN-004",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "Payload is right-sized",
+      "blocking": false
+    }
+  ]
+}

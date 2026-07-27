@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% set page_depth = 2 %}
+{% block content %}
+<div class="breadcrumbs"><a href="../index.html">Policy catalog</a> / {{ dimension.name }}</div>
+<div class="page-header"><span class="eyebrow">{{ dimension.weight }}% weight · Owner: {{ dimension.owner }}</span><h1>{{ dimension.name }}</h1><p>{{ dimension.purpose }}</p></div>
+<div class="traffic-explainer"><div class="green"><strong>GREEN</strong><span>≥ {{ dimension.traffic_light.green }}%</span></div><div class="amber"><strong>AMBER</strong><span>≥ {{ dimension.traffic_light.amber }}%</span></div><div class="red"><strong>RED</strong><span>Below threshold or blocker</span></div></div>
+<div class="table-wrap"><table><thead><tr><th>Gate</th><th>Requirement</th><th>Severity</th><th>Blocking</th><th>Evaluator</th><th>Evidence path</th></tr></thead><tbody>
+{% for gate in dimension.gates %}<tr><td><code>{{ gate.id }}</code></td><td>{{ gate.title }}</td><td><span class="severity {{ gate.severity|lower }}">{{ gate.severity }}</span></td><td>{{ 'Yes' if gate.blocking else 'No' }}</td><td><code>{{ gate.evaluator }}</code></td><td><code>{{ gate.args.path if gate.args is defined and gate.args.path is defined else 'Derived evidence' }}</code></td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

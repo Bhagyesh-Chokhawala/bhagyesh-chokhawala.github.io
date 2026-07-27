@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoSQL transactional and data integrity · Outcome-Centric API Policy Portal</title>
+  <meta name="description" content="Central guidance, dimension-level policy gates, validation logs, and compliance reports.">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script defer src="../../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>Outcome-Centric API Policy Portal</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="" href="../../index.html">Home</a>
+    <a class="active" href="../../policies/index.html">Policies</a>
+    <a class="" href="../../reports/index.html">Reports</a>
+    <a class="" href="../../testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+<div class="breadcrumbs"><a href="../index.html">Policy catalog</a> / NoSQL transactional and data integrity</div>
+<div class="page-header"><span class="eyebrow">15% weight · Owner: Data and Domain Architecture</span><h1>NoSQL transactional and data integrity</h1><p>Makes aggregate ownership, concurrency, event reliability, projections, and reconciliation explicit.</p></div>
+<div class="traffic-explainer"><div class="green"><strong>GREEN</strong><span>≥ 90%</span></div><div class="amber"><strong>AMBER</strong><span>≥ 70%</span></div><div class="red"><strong>RED</strong><span>Below threshold or blocker</span></div></div>
+<div class="table-wrap"><table><thead><tr><th>Gate</th><th>Requirement</th><th>Severity</th><th>Blocking</th><th>Evaluator</th><th>Evidence path</th></tr></thead><tbody>
+<tr><td><code>INT-001</code></td><td>NoSQL integrity control set is complete</td><td><span class="severity critical">CRITICAL</span></td><td>Yes</td><td><code>integrity_complete</code></td><td><code>Derived evidence</code></td></tr><tr><td><code>INT-002</code></td><td>Idempotency is enabled</td><td><span class="severity critical">CRITICAL</span></td><td>Yes</td><td><code>truthy</code></td><td><code>integrity.idempotency</code></td></tr><tr><td><code>INT-003</code></td><td>Aggregate owner is declared</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>nonempty</code></td><td><code>integrity.aggregate_owner</code></td></tr><tr><td><code>INT-004</code></td><td>Single-writer rule is declared</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>truthy</code></td><td><code>integrity.single_writer</code></td></tr><tr><td><code>INT-005</code></td><td>Concurrency-control mechanism is declared</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>nonempty</code></td><td><code>integrity.concurrency_control</code></td></tr><tr><td><code>INT-006</code></td><td>Outbox/inbox reliability is enabled</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>truthy</code></td><td><code>integrity.outbox_inbox</code></td></tr><tr><td><code>INT-007</code></td><td>Projection freshness is measured</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>truthy</code></td><td><code>integrity.projection_freshness</code></td></tr><tr><td><code>INT-008</code></td><td>Reconciliation is defined</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>truthy</code></td><td><code>integrity.reconciliation</code></td></tr><tr><td><code>INT-009</code></td><td>Saga or compensation is defined</td><td><span class="severity high">HIGH</span></td><td>No</td><td><code>truthy</code></td><td><code>integrity.saga_or_compensation</code></td></tr></tbody></table></div>
+</main>
+<footer>
+  <span>Generated 2026-07-27T09:20:23+00:00</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

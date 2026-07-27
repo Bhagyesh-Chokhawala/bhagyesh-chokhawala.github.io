@@ -1,0 +1,21 @@
+dimension:
+  key: ai_mcp_a2a
+  name: AI, MCP, and Agent-to-Agent governance
+  weight: 5
+  owner: AI Platform Governance
+  purpose: Keeps agent discovery, delegation, tool use, approval, and audit within
+    enterprise control boundaries.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: AI-001
+    title: MCP exposure is governed
+    severity: CRITICAL
+    blocking: true
+    evaluator: mcp_governed
+  - id: A2A-001
+    title: A2A exposure is governed
+    severity: CRITICAL
+    blocking: true
+    evaluator: a2a_governed

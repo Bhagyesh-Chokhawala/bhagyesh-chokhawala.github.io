@@ -1,0 +1,44 @@
+[
+  {
+    "run_id": "demo-amber",
+    "api_name": "customer-disconnect-api-review-needed",
+    "repository": "policy-repository/examples",
+    "ref": "amber-api",
+    "commit": "demo",
+    "timestamp": "2026-07-27T09:20:22+00:00",
+    "workflow_url": "",
+    "traffic_light": "AMBER",
+    "decision": "REMEDIATION OR RISK ACCEPTANCE REQUIRED",
+    "score": 98.3,
+    "required_score": 90.0,
+    "url": "reports/runs/demo-amber/index.html"
+  },
+  {
+    "run_id": "demo-red",
+    "api_name": "disconnect-screen-api",
+    "repository": "policy-repository/examples",
+    "ref": "noncompliant-api",
+    "commit": "demo",
+    "timestamp": "2026-07-27T09:20:22+00:00",
+    "workflow_url": "",
+    "traffic_light": "RED",
+    "decision": "REJECTED - RELEASE BLOCKED",
+    "score": 8.5,
+    "required_score": 90.0,
+    "url": "reports/runs/demo-red/index.html"
+  },
+  {
+    "run_id": "demo-green",
+    "api_name": "customer-disconnect-api",
+    "repository": "policy-repository/examples",
+    "ref": "compliant-api",
+    "commit": "demo",
+    "timestamp": "2026-07-27T09:20:21+00:00",
+    "workflow_url": "",
+    "traffic_light": "GREEN",
+    "decision": "APPROVED",
+    "score": 100.0,
+    "required_score": 90.0,
+    "url": "reports/runs/demo-green/index.html"
+  }
+]

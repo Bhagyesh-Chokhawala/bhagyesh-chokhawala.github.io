@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% set page_depth = 1 %}
+{% block content %}
+<div class="page-header"><span class="eyebrow">Validation evidence</span><h1>Testing logs and compliance reports</h1><p>Browse every retained validation run, inspect dimension traffic lights, and open sanitized test logs and policy reports.</p></div>
+<div class="filter-bar"><input id="report-search" type="search" placeholder="Filter by API, repository, ref, or status"><select id="status-filter"><option value="">All statuses</option><option>GREEN</option><option>AMBER</option><option>RED</option></select></div>
+<div class="table-wrap"><table id="report-table"><thead><tr><th>Status</th><th>API</th><th>Repository</th><th>Ref / commit</th><th>Score</th><th>Timestamp</th></tr></thead><tbody>
+{% for run in runs %}<tr data-status="{{ run.traffic_light }}" data-search="{{ run.api_name }} {{ run.repository }} {{ run.ref }} {{ run.commit }} {{ run.traffic_light }}"><td><span class="status {{ run.traffic_light|lower }}">{{ run.traffic_light|icon }} {{ run.traffic_light }}</span></td><td><a href="runs/{{ run.run_id }}/index.html">{{ run.api_name }}</a><br><small>{{ run.decision }}</small></td><td>{{ run.repository }}</td><td>{{ run.ref }}<br><code>{{ run.commit[:12] }}</code></td><td>{{ '%.1f'|format(run.score) }} / {{ '%.1f'|format(run.required_score) }}</td><td>{{ run.timestamp|fmt_date }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% if not runs %}<div class="empty">No reports have been published. Run the validation workflow or build a local demo.</div>{% endif %}
+{% endblock %}

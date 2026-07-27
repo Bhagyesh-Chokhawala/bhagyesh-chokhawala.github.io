@@ -1,0 +1,51 @@
+dimension:
+  key: observability_audit
+  name: Cross-layer observability and auditability
+  weight: 10
+  owner: SRE and Observability
+  purpose: Requires business transaction traceability across synchronous, asynchronous,
+    MCP, and A2A boundaries.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: OBS-001
+    title: Trace propagation is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: observability.traceparent
+  - id: OBS-002
+    title: Correlation ID is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: observability.correlation_id
+  - id: OBS-003
+    title: Business transaction ID is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: observability.business_transaction_id
+  - id: OBS-004
+    title: Structured logging is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: observability.structured_logs
+  - id: OBS-005
+    title: Audit events are enabled
+    severity: CRITICAL
+    blocking: true
+    evaluator: truthy
+    args:
+      path: observability.audit
+  - id: OBS-006
+    title: Required observability headers exist in OpenAPI
+    severity: HIGH
+    blocking: false
+    evaluator: openapi_headers

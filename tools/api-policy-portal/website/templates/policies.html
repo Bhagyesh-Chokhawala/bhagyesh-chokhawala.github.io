@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% set page_depth = 1 %}
+{% block content %}
+<div class="page-header"><span class="eyebrow">Policy repository v{{ policy.version }}</span><h1>Policy catalog</h1><p>All release gates are separated by framework dimension, with named ownership, weights, evidence expectations, and traffic-light thresholds.</p></div>
+<div class="traffic-explainer"><div class="green"><strong>🟢 GREEN</strong><span>Release eligible</span></div><div class="amber"><strong>🟠 AMBER</strong><span>Remediation or risk acceptance</span></div><div class="red"><strong>🔴 RED</strong><span>Release blocked</span></div></div>
+<div class="card-grid">
+{% for d in dimensions %}<a class="card policy-card" href="{{ d.key|replace('_','-') }}/index.html"><div class="card-top"><span class="weight">{{ d.weight }}%</span><span class="owner">{{ d.owner }}</span></div><h3>{{ d.name }}</h3><p>{{ d.purpose }}</p><small>{{ d.gates|length }} gates</small></a>{% endfor %}
+</div>
+{% endblock %}

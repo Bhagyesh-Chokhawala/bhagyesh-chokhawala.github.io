@@ -1,0 +1,39 @@
+dimension:
+  key: testing_mocking
+  name: Testing automation and mock coverage
+  weight: 10
+  owner: Quality Engineering
+  purpose: Requires deterministic contract, authorization, failure-path, and scenario-based
+    mock evidence.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: TEST-001
+    title: Contract tests exist
+    severity: CRITICAL
+    blocking: true
+    evaluator: dir_has_files
+    args:
+      path: testing.contract_tests
+  - id: TEST-002
+    title: Authorization tests exist
+    severity: CRITICAL
+    blocking: true
+    evaluator: dir_has_files
+    args:
+      path: testing.authorization_tests
+  - id: TEST-003
+    title: Failure-path tests exist
+    severity: HIGH
+    blocking: false
+    evaluator: dir_has_files
+    args:
+      path: testing.failure_path_tests
+  - id: TEST-004
+    title: Scenario-based mock data exists
+    severity: HIGH
+    blocking: false
+    evaluator: file_exists
+    args:
+      path: testing.mock_scenarios

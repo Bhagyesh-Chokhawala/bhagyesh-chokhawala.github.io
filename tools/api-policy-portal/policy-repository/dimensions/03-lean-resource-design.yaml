@@ -1,0 +1,51 @@
+dimension:
+  key: lean_resource_design
+  name: Lean API and resource design
+  weight: 10
+  owner: API Design Council
+  purpose: Reduces endpoint and payload waste while preserving reusable resource access
+    patterns.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: LEAN-001
+    title: API is resource-oriented
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: lean.resource_oriented
+  - id: LEAN-002
+    title: API is not screen-specific
+    severity: HIGH
+    blocking: false
+    evaluator: falsey
+    args:
+      path: lean.screen_specific
+  - id: LEAN-003
+    title: Collection and detail access are separated
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: lean.collection_detail_separated
+  - id: LEAN-004
+    title: Payload is right-sized
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: lean.payload_right_sized
+  - id: LEAN-005
+    title: API is reusable
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: lean.reusable
+  - id: LEAN-006
+    title: Paths avoid UI and database implementation terms
+    severity: HIGH
+    blocking: false
+    evaluator: no_prohibited_paths

@@ -1,0 +1,8 @@
+{
+  "run_id": "demo-red",
+  "repository": "policy-repository/examples",
+  "ref": "noncompliant-api",
+  "commit": "demo",
+  "timestamp": "2026-07-27T09:20:22+00:00",
+  "workflow_url": ""
+}

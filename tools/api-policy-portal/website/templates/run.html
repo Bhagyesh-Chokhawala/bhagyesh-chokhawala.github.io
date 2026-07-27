@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% set page_depth = 3 %}
+{% block content %}
+<div class="breadcrumbs"><a href="../../index.html">Reports</a> / {{ run.api_name }} / {{ run.run_id }}</div>
+<div class="run-header {{ run.traffic_light|lower }}"><div><span class="status {{ run.traffic_light|lower }}">{{ run.traffic_light|icon }} {{ run.traffic_light }}</span><h1>{{ run.api_name }}</h1><p>{{ run.decision }}</p></div><div class="score"><strong>{{ '%.1f'|format(run.score) }}</strong><span>Required {{ '%.1f'|format(run.required_score) }}</span></div></div>
+<div class="metadata-grid"><div><span>Repository</span><strong>{{ run.repository }}</strong></div><div><span>Ref</span><strong>{{ run.ref }}</strong></div><div><span>Commit</span><code>{{ run.commit }}</code></div><div><span>Timestamp</span><strong>{{ run.timestamp|fmt_date }}</strong></div>{% if run.workflow_url %}<div><span>Workflow</span><a href="{{ run.workflow_url }}">Open GitHub Actions run</a></div>{% endif %}</div>
+<h2>Dimension traffic lights</h2>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Dimension</th><th>Owner</th><th>Score</th><th>Gates</th><th>Failed gates</th></tr></thead><tbody>
+{% for d in report.dimensions %}<tr><td><span class="status {{ d.traffic_light|lower }}">{{ d.traffic_light|icon }} {{ d.traffic_light }}</span></td><td>{{ d.label }}</td><td>{{ d.owner }}</td><td>{{ d.raw_score }}%</td><td>{{ d.checks_passed }}/{{ d.checks_total }}</td><td>{{ d.failed_gate_ids|join(', ') if d.failed_gate_ids else '—' }}</td></tr>{% endfor %}
+</tbody></table></div>
+<h2>Gate findings</h2>
+{% if report.findings %}<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Dimension</th><th>Severity</th><th>Blocking</th><th>Finding</th></tr></thead><tbody>{% for f in report.findings %}<tr><td><code>{{ f.rule_id }}</code></td><td>{{ f.dimension }}</td><td><span class="severity {{ f.severity|lower }}">{{ f.severity }}</span></td><td>{{ 'Yes' if f.blocking else 'No' }}</td><td>{{ f.message }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="success-box">No gate findings.</div>{% endif %}
+<h2>Artifacts and reports</h2><div class="artifact-grid">{% for a in artifacts %}<a class="artifact" href="{{ a.url }}"><span>{{ a.type|upper }}</span><strong>{{ a.name }}</strong><small>Open or download</small></a>{% endfor %}</div>
+{% if previews %}<h2>Testing and validation logs</h2>{% for preview in previews %}<details class="log" open><summary>{{ preview.name }}</summary><pre>{{ preview.content }}</pre></details>{% endfor %}{% endif %}
+{% endblock %}

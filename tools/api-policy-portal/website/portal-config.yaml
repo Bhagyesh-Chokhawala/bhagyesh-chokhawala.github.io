@@ -1,0 +1,11 @@
+portal:
+  title: Outcome-Centric API Policy Portal
+  description: Central guidance, dimension-level policy gates, validation logs, and compliance reports.
+  retain_runs: 200
+  max_inline_log_bytes: 250000
+  redaction_patterns:
+    - '(?i)(authorization\s*:\s*bearer\s+)[A-Za-z0-9._~+/-]+=*'
+    - '(?i)(api[_-]?key\s*[=:]\s*)[^\s,;]+'
+    - '(?i)(password\s*[=:]\s*)[^\s,;]+'
+    - '(?i)(secret\s*[=:]\s*)[^\s,;]+'
+    - '(gh[pousr]_[A-Za-z0-9]{20,})'

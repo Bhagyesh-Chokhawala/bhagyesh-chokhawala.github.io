@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "api",
+    "contracts",
+    "lean",
+    "security",
+    "integrity",
+    "observability",
+    "health",
+    "ai",
+    "testing",
+    "lifecycle"
+  ],
+  "properties": {
+    "api": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "layer",
+        "business_outcome",
+        "capability",
+        "risk_tier",
+        "owners",
+        "consumers"
+      ]
+    },
+    "contracts": {
+      "type": "object",
+      "required": [
+        "openapi",
+        "backward_compatibility",
+        "error_model"
+      ]
+    },
+    "lean": {
+      "type": "object"
+    },
+    "security": {
+      "type": "object"
+    },
+    "integrity": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "ai": {
+      "type": "object"
+    },
+    "testing": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    }
+  }
+}

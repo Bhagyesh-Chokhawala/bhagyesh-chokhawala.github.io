@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Policy catalog · Outcome-Centric API Policy Portal</title>
+  <meta name="description" content="Central guidance, dimension-level policy gates, validation logs, and compliance reports.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script defer src="../assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>Outcome-Centric API Policy Portal</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="" href="../index.html">Home</a>
+    <a class="active" href="../policies/index.html">Policies</a>
+    <a class="" href="../reports/index.html">Reports</a>
+    <a class="" href="../testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+<div class="page-header"><span class="eyebrow">Policy repository v3.0.0</span><h1>Policy catalog</h1><p>All release gates are separated by framework dimension, with named ownership, weights, evidence expectations, and traffic-light thresholds.</p></div>
+<div class="traffic-explainer"><div class="green"><strong>🟢 GREEN</strong><span>Release eligible</span></div><div class="amber"><strong>🟠 AMBER</strong><span>Remediation or risk acceptance</span></div><div class="red"><strong>🔴 RED</strong><span>Release blocked</span></div></div>
+<div class="card-grid">
+<a class="card policy-card" href="outcome-capability/index.html"><div class="card-top"><span class="weight">10%</span><span class="owner">Enterprise Architecture</span></div><h3>Business outcome and capability alignment</h3><p>Ensures every API has a stable business purpose, domain ownership, and identified consumers.</p><small>5 gates</small></a><a class="card policy-card" href="specification-contract/index.html"><div class="card-top"><span class="weight">15%</span><span class="owner">API Platform</span></div><h3>Specification and data-contract quality</h3><p>Makes the machine-readable API specification the authoritative build and release contract.</p><small>5 gates</small></a><a class="card policy-card" href="lean-resource-design/index.html"><div class="card-top"><span class="weight">10%</span><span class="owner">API Design Council</span></div><h3>Lean API and resource design</h3><p>Reduces endpoint and payload waste while preserving reusable resource access patterns.</p><small>6 gates</small></a><a class="card policy-card" href="security-authorization/index.html"><div class="card-top"><span class="weight">15%</span><span class="owner">Security Architecture</span></div><h3>Security and role-aware authorization</h3><p>Validates authentication, actor/subject context, object-level access, delegation, and policy-as-code.</p><small>6 gates</small></a><a class="card policy-card" href="nosql-integrity/index.html"><div class="card-top"><span class="weight">15%</span><span class="owner">Data and Domain Architecture</span></div><h3>NoSQL transactional and data integrity</h3><p>Makes aggregate ownership, concurrency, event reliability, projections, and reconciliation explicit.</p><small>9 gates</small></a><a class="card policy-card" href="observability-audit/index.html"><div class="card-top"><span class="weight">10%</span><span class="owner">SRE and Observability</span></div><h3>Cross-layer observability and auditability</h3><p>Requires business transaction traceability across synchronous, asynchronous, MCP, and A2A boundaries.</p><small>6 gates</small></a><a class="card policy-card" href="testing-mocking/index.html"><div class="card-top"><span class="weight">10%</span><span class="owner">Quality Engineering</span></div><h3>Testing automation and mock coverage</h3><p>Requires deterministic contract, authorization, failure-path, and scenario-based mock evidence.</p><small>4 gates</small></a><a class="card policy-card" href="health-impact/index.html"><div class="card-top"><span class="weight">5%</span><span class="owner">SRE and Operations</span></div><h3>Health and business-impact exposure</h3><p>Requires technical readiness plus dependency, capability, integrity, and consumer-impact visibility.</p><small>6 gates</small></a><a class="card policy-card" href="ai-mcp-a2a/index.html"><div class="card-top"><span class="weight">5%</span><span class="owner">AI Platform Governance</span></div><h3>AI, MCP, and Agent-to-Agent governance</h3><p>Keeps agent discovery, delegation, tool use, approval, and audit within enterprise control boundaries.</p><small>2 gates</small></a><a class="card policy-card" href="lifecycle-reuse/index.html"><div class="card-top"><span class="weight">5%</span><span class="owner">API Product Management</span></div><h3>Lifecycle, versioning, and reuse</h3><p>Ensures APIs can evolve predictably, be deprecated safely, and deliver portfolio reuse.</p><small>4 gates</small></a></div>
+</main>
+<footer>
+  <span>Generated 2026-07-27T09:20:23+00:00</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

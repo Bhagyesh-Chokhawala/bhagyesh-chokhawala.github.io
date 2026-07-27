@@ -1,0 +1,51 @@
+dimension:
+  key: security_authorization
+  name: Security and role-aware authorization
+  weight: 15
+  owner: Security Architecture
+  purpose: Validates authentication, actor/subject context, object-level access, delegation,
+    and policy-as-code.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: SEC-001
+    title: Authentication is configured
+    severity: CRITICAL
+    blocking: true
+    evaluator: nonempty
+    args:
+      path: security.authentication
+  - id: SEC-002
+    title: Object-level authorization is required
+    severity: CRITICAL
+    blocking: true
+    evaluator: truthy
+    args:
+      path: security.object_level_authorization
+  - id: SEC-003
+    title: Actor/subject model is defined
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: security.actor_subject_model
+  - id: SEC-004
+    title: Policy-as-code is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: security.policy_as_code
+  - id: SEC-005
+    title: Acting modes are declared
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: security.acting_modes
+  - id: SEC-006
+    title: OpenAPI declares security requirements
+    severity: CRITICAL
+    blocking: true
+    evaluator: openapi_security

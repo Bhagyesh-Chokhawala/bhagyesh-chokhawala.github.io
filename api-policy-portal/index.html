@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home · Outcome-Centric API Policy Portal</title>
+  <meta name="description" content="Central guidance, dimension-level policy gates, validation logs, and compliance reports.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">API</span>
+    <span><strong>Outcome-Centric API Policy Portal</strong><small>Guidance · Gates · Evidence</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+  <nav class="nav">
+    <a class="active" href="index.html">Home</a>
+    <a class="" href="policies/index.html">Policies</a>
+    <a class="" href="reports/index.html">Reports</a>
+    <a class="" href="testing-any-api/index.html">Guidance</a>
+    <a href="https://bhagyesh-chokhawala.github.io/" target="_blank" rel="noopener noreferrer">Original site</a>
+  </nav>
+</header>
+<main class="container">
+<section class="hero">
+  <div>
+    <span class="eyebrow">Central policy guidance and build evidence</span>
+    <h1>Design, validate, and govern enterprise APIs with visible release evidence.</h1>
+    <p>Central build-time API policies and release gates, separated by framework dimension.</p>
+    <div class="actions">
+      <a class="button primary" href="testing-any-api/index.html">Test an API</a>
+      <a class="button" href="policies/index.html">Browse policy dimensions</a>
+      <a class="button" href="reports/index.html">View all reports</a>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="metric"><strong>3</strong><span>Published runs</span></div>
+    <div class="metric green"><strong>1</strong><span>GREEN</span></div>
+    <div class="metric amber"><strong>1</strong><span>AMBER</span></div>
+    <div class="metric red"><strong>1</strong><span>RED</span></div>
+  </div>
+</section>
+<section>
+  <div class="section-heading"><div><span class="eyebrow">Policy model</span><h2>Dimension-level gates</h2></div><a href="policies/index.html">Full catalog →</a></div>
+  <div class="card-grid">
+    <a class="card policy-card" href="policies/outcome-capability/index.html">
+      <div class="card-top"><span class="weight">10%</span><span class="owner">Enterprise Architecture</span></div>
+      <h3>Business outcome and capability alignment</h3>
+      <p>Ensures every API has a stable business purpose, domain ownership, and identified consumers.</p>
+      <small>5 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/specification-contract/index.html">
+      <div class="card-top"><span class="weight">15%</span><span class="owner">API Platform</span></div>
+      <h3>Specification and data-contract quality</h3>
+      <p>Makes the machine-readable API specification the authoritative build and release contract.</p>
+      <small>5 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/lean-resource-design/index.html">
+      <div class="card-top"><span class="weight">10%</span><span class="owner">API Design Council</span></div>
+      <h3>Lean API and resource design</h3>
+      <p>Reduces endpoint and payload waste while preserving reusable resource access patterns.</p>
+      <small>6 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/security-authorization/index.html">
+      <div class="card-top"><span class="weight">15%</span><span class="owner">Security Architecture</span></div>
+      <h3>Security and role-aware authorization</h3>
+      <p>Validates authentication, actor/subject context, object-level access, delegation, and policy-as-code.</p>
+      <small>6 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/nosql-integrity/index.html">
+      <div class="card-top"><span class="weight">15%</span><span class="owner">Data and Domain Architecture</span></div>
+      <h3>NoSQL transactional and data integrity</h3>
+      <p>Makes aggregate ownership, concurrency, event reliability, projections, and reconciliation explicit.</p>
+      <small>9 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/observability-audit/index.html">
+      <div class="card-top"><span class="weight">10%</span><span class="owner">SRE and Observability</span></div>
+      <h3>Cross-layer observability and auditability</h3>
+      <p>Requires business transaction traceability across synchronous, asynchronous, MCP, and A2A boundaries.</p>
+      <small>6 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/testing-mocking/index.html">
+      <div class="card-top"><span class="weight">10%</span><span class="owner">Quality Engineering</span></div>
+      <h3>Testing automation and mock coverage</h3>
+      <p>Requires deterministic contract, authorization, failure-path, and scenario-based mock evidence.</p>
+      <small>4 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/health-impact/index.html">
+      <div class="card-top"><span class="weight">5%</span><span class="owner">SRE and Operations</span></div>
+      <h3>Health and business-impact exposure</h3>
+      <p>Requires technical readiness plus dependency, capability, integrity, and consumer-impact visibility.</p>
+      <small>6 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/ai-mcp-a2a/index.html">
+      <div class="card-top"><span class="weight">5%</span><span class="owner">AI Platform Governance</span></div>
+      <h3>AI, MCP, and Agent-to-Agent governance</h3>
+      <p>Keeps agent discovery, delegation, tool use, approval, and audit within enterprise control boundaries.</p>
+      <small>2 gates · GREEN ≥ 90%</small>
+    </a>
+    <a class="card policy-card" href="policies/lifecycle-reuse/index.html">
+      <div class="card-top"><span class="weight">5%</span><span class="owner">API Product Management</span></div>
+      <h3>Lifecycle, versioning, and reuse</h3>
+      <p>Ensures APIs can evolve predictably, be deprecated safely, and deliver portfolio reuse.</p>
+      <small>4 gates · GREEN ≥ 90%</small>
+    </a>
+  </div>
+</section>
+<section>
+  <div class="section-heading"><div><span class="eyebrow">Evidence</span><h2>Latest validation runs</h2></div><a href="reports/index.html">All runs →</a></div>
+  <div class="table-wrap"><table><thead><tr><th>Status</th><th>API</th><th>Repository / ref</th><th>Score</th><th>Timestamp</th></tr></thead><tbody>
+<tr><td><span class="status amber">🟠 AMBER</span></td><td><a href="reports/runs/demo-amber/index.html">customer-disconnect-api-review-needed</a></td><td>policy-repository/examples<br><small>amber-api</small></td><td>98.3</td><td>2026-07-27 09:20:22 UTC</td></tr><tr><td><span class="status red">🔴 RED</span></td><td><a href="reports/runs/demo-red/index.html">disconnect-screen-api</a></td><td>policy-repository/examples<br><small>noncompliant-api</small></td><td>8.5</td><td>2026-07-27 09:20:22 UTC</td></tr><tr><td><span class="status green">🟢 GREEN</span></td><td><a href="reports/runs/demo-green/index.html">customer-disconnect-api</a></td><td>policy-repository/examples<br><small>compliant-api</small></td><td>100.0</td><td>2026-07-27 09:20:21 UTC</td></tr>  </tbody></table></div>
+</section>
+</main>
+<footer>
+  <span>Generated 2026-07-27T09:20:23+00:00</span>
+  <span>Outcome-Centric API Policy Repository</span>
+</footer>
+</body>
+</html>

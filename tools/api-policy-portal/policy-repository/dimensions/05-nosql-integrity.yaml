@@ -1,0 +1,72 @@
+dimension:
+  key: nosql_integrity
+  name: NoSQL transactional and data integrity
+  weight: 15
+  owner: Data and Domain Architecture
+  purpose: Makes aggregate ownership, concurrency, event reliability, projections,
+    and reconciliation explicit.
+  traffic_light:
+    green: 90
+    amber: 70
+  gates:
+  - id: INT-001
+    title: NoSQL integrity control set is complete
+    severity: CRITICAL
+    blocking: true
+    evaluator: integrity_complete
+  - id: INT-002
+    title: Idempotency is enabled
+    severity: CRITICAL
+    blocking: true
+    evaluator: truthy
+    args:
+      path: integrity.idempotency
+  - id: INT-003
+    title: Aggregate owner is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: integrity.aggregate_owner
+  - id: INT-004
+    title: Single-writer rule is declared
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: integrity.single_writer
+  - id: INT-005
+    title: Concurrency-control mechanism is declared
+    severity: HIGH
+    blocking: false
+    evaluator: nonempty
+    args:
+      path: integrity.concurrency_control
+  - id: INT-006
+    title: Outbox/inbox reliability is enabled
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: integrity.outbox_inbox
+  - id: INT-007
+    title: Projection freshness is measured
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: integrity.projection_freshness
+  - id: INT-008
+    title: Reconciliation is defined
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: integrity.reconciliation
+  - id: INT-009
+    title: Saga or compensation is defined
+    severity: HIGH
+    blocking: false
+    evaluator: truthy
+    args:
+      path: integrity.saga_or_compensation

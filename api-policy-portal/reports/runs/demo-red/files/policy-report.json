@@ -1,0 +1,536 @@
+{
+  "api_name": "disconnect-screen-api",
+  "policy_version": "3.0.0",
+  "risk_tier": "high",
+  "minimum_score": 90.0,
+  "score": 8.5,
+  "traffic_light": "RED",
+  "decision": "REJECTED - RELEASE BLOCKED",
+  "passed": false,
+  "dimensions": [
+    {
+      "key": "outcome_capability",
+      "label": "Business outcome and capability alignment",
+      "owner": "Enterprise Architecture",
+      "weight": 10.0,
+      "earned": 6.0,
+      "raw_score": 60.0,
+      "traffic_light": "RED",
+      "checks_passed": 3,
+      "checks_total": 5,
+      "failed_gate_ids": [
+        "OUT-003",
+        "OUT-005"
+      ]
+    },
+    {
+      "key": "specification_contract",
+      "label": "Specification and data-contract quality",
+      "owner": "API Platform",
+      "weight": 15.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 5,
+      "failed_gate_ids": [
+        "SPEC-001",
+        "SPEC-002",
+        "SPEC-003",
+        "SPEC-004",
+        "SPEC-005"
+      ]
+    },
+    {
+      "key": "lean_resource_design",
+      "label": "Lean API and resource design",
+      "owner": "API Design Council",
+      "weight": 10.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 6,
+      "failed_gate_ids": [
+        "LEAN-001",
+        "LEAN-002",
+        "LEAN-003",
+        "LEAN-004",
+        "LEAN-005",
+        "LEAN-006"
+      ]
+    },
+    {
+      "key": "security_authorization",
+      "label": "Security and role-aware authorization",
+      "owner": "Security Architecture",
+      "weight": 15.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 6,
+      "failed_gate_ids": [
+        "SEC-001",
+        "SEC-002",
+        "SEC-003",
+        "SEC-004",
+        "SEC-005",
+        "SEC-006"
+      ]
+    },
+    {
+      "key": "nosql_integrity",
+      "label": "NoSQL transactional and data integrity",
+      "owner": "Data and Domain Architecture",
+      "weight": 15.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 9,
+      "failed_gate_ids": [
+        "INT-001",
+        "INT-002",
+        "INT-003",
+        "INT-004",
+        "INT-005",
+        "INT-006",
+        "INT-007",
+        "INT-008",
+        "INT-009"
+      ]
+    },
+    {
+      "key": "observability_audit",
+      "label": "Cross-layer observability and auditability",
+      "owner": "SRE and Observability",
+      "weight": 10.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 6,
+      "failed_gate_ids": [
+        "OBS-001",
+        "OBS-002",
+        "OBS-003",
+        "OBS-004",
+        "OBS-005",
+        "OBS-006"
+      ]
+    },
+    {
+      "key": "testing_mocking",
+      "label": "Testing automation and mock coverage",
+      "owner": "Quality Engineering",
+      "weight": 10.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 4,
+      "failed_gate_ids": [
+        "TEST-001",
+        "TEST-002",
+        "TEST-003",
+        "TEST-004"
+      ]
+    },
+    {
+      "key": "health_impact",
+      "label": "Health and business-impact exposure",
+      "owner": "SRE and Operations",
+      "weight": 5.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 6,
+      "failed_gate_ids": [
+        "HLTH-001",
+        "HLTH-002",
+        "HLTH-003",
+        "HLTH-004",
+        "HLTH-005",
+        "HLTH-006"
+      ]
+    },
+    {
+      "key": "ai_mcp_a2a",
+      "label": "AI, MCP, and Agent-to-Agent governance",
+      "owner": "AI Platform Governance",
+      "weight": 5.0,
+      "earned": 2.5,
+      "raw_score": 50.0,
+      "traffic_light": "RED",
+      "checks_passed": 1,
+      "checks_total": 2,
+      "failed_gate_ids": [
+        "AI-001"
+      ]
+    },
+    {
+      "key": "lifecycle_reuse",
+      "label": "Lifecycle, versioning, and reuse",
+      "owner": "API Product Management",
+      "weight": 5.0,
+      "earned": 0.0,
+      "raw_score": 0.0,
+      "traffic_light": "RED",
+      "checks_passed": 0,
+      "checks_total": 4,
+      "failed_gate_ids": [
+        "LIFE-001",
+        "LIFE-002",
+        "LIFE-003",
+        "LIFE-004"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "rule_id": "OUT-003",
+      "dimension": "outcome_capability",
+      "severity": "HIGH",
+      "message": "Business owner is defined",
+      "blocking": false
+    },
+    {
+      "rule_id": "OUT-005",
+      "dimension": "outcome_capability",
+      "severity": "HIGH",
+      "message": "At least one consumer is identified",
+      "blocking": false
+    },
+    {
+      "rule_id": "SPEC-001",
+      "dimension": "specification_contract",
+      "severity": "CRITICAL",
+      "message": "OpenAPI file exists",
+      "blocking": true
+    },
+    {
+      "rule_id": "SPEC-002",
+      "dimension": "specification_contract",
+      "severity": "CRITICAL",
+      "message": "OpenAPI structure is valid",
+      "blocking": true
+    },
+    {
+      "rule_id": "SPEC-003",
+      "dimension": "specification_contract",
+      "severity": "HIGH",
+      "message": "Backward compatibility is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "SPEC-004",
+      "dimension": "specification_contract",
+      "severity": "HIGH",
+      "message": "Standard error model is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "SPEC-005",
+      "dimension": "specification_contract",
+      "severity": "CRITICAL",
+      "message": "Security scheme is declared",
+      "blocking": true
+    },
+    {
+      "rule_id": "LEAN-001",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "API is resource-oriented",
+      "blocking": false
+    },
+    {
+      "rule_id": "LEAN-002",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "API is not screen-specific",
+      "blocking": false
+    },
+    {
+      "rule_id": "LEAN-003",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "Collection and detail access are separated",
+      "blocking": false
+    },
+    {
+      "rule_id": "LEAN-004",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "Payload is right-sized",
+      "blocking": false
+    },
+    {
+      "rule_id": "LEAN-005",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "API is reusable",
+      "blocking": false
+    },
+    {
+      "rule_id": "LEAN-006",
+      "dimension": "lean_resource_design",
+      "severity": "HIGH",
+      "message": "Paths avoid UI and database implementation terms",
+      "blocking": false
+    },
+    {
+      "rule_id": "SEC-001",
+      "dimension": "security_authorization",
+      "severity": "CRITICAL",
+      "message": "Authentication is configured",
+      "blocking": true
+    },
+    {
+      "rule_id": "SEC-002",
+      "dimension": "security_authorization",
+      "severity": "CRITICAL",
+      "message": "Object-level authorization is required",
+      "blocking": true
+    },
+    {
+      "rule_id": "SEC-003",
+      "dimension": "security_authorization",
+      "severity": "HIGH",
+      "message": "Actor/subject model is defined",
+      "blocking": false
+    },
+    {
+      "rule_id": "SEC-004",
+      "dimension": "security_authorization",
+      "severity": "HIGH",
+      "message": "Policy-as-code is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "SEC-005",
+      "dimension": "security_authorization",
+      "severity": "HIGH",
+      "message": "Acting modes are declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "SEC-006",
+      "dimension": "security_authorization",
+      "severity": "CRITICAL",
+      "message": "OpenAPI declares security requirements",
+      "blocking": true
+    },
+    {
+      "rule_id": "INT-001",
+      "dimension": "nosql_integrity",
+      "severity": "CRITICAL",
+      "message": "NoSQL integrity control set is complete",
+      "blocking": true
+    },
+    {
+      "rule_id": "INT-002",
+      "dimension": "nosql_integrity",
+      "severity": "CRITICAL",
+      "message": "Idempotency is enabled",
+      "blocking": true
+    },
+    {
+      "rule_id": "INT-003",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Aggregate owner is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-004",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Single-writer rule is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-005",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Concurrency-control mechanism is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-006",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Outbox/inbox reliability is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-007",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Projection freshness is measured",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-008",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Reconciliation is defined",
+      "blocking": false
+    },
+    {
+      "rule_id": "INT-009",
+      "dimension": "nosql_integrity",
+      "severity": "HIGH",
+      "message": "Saga or compensation is defined",
+      "blocking": false
+    },
+    {
+      "rule_id": "OBS-001",
+      "dimension": "observability_audit",
+      "severity": "HIGH",
+      "message": "Trace propagation is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "OBS-002",
+      "dimension": "observability_audit",
+      "severity": "HIGH",
+      "message": "Correlation ID is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "OBS-003",
+      "dimension": "observability_audit",
+      "severity": "HIGH",
+      "message": "Business transaction ID is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "OBS-004",
+      "dimension": "observability_audit",
+      "severity": "HIGH",
+      "message": "Structured logging is enabled",
+      "blocking": false
+    },
+    {
+      "rule_id": "OBS-005",
+      "dimension": "observability_audit",
+      "severity": "CRITICAL",
+      "message": "Audit events are enabled",
+      "blocking": true
+    },
+    {
+      "rule_id": "OBS-006",
+      "dimension": "observability_audit",
+      "severity": "HIGH",
+      "message": "Required observability headers exist in OpenAPI",
+      "blocking": false
+    },
+    {
+      "rule_id": "TEST-001",
+      "dimension": "testing_mocking",
+      "severity": "CRITICAL",
+      "message": "Contract tests exist",
+      "blocking": true
+    },
+    {
+      "rule_id": "TEST-002",
+      "dimension": "testing_mocking",
+      "severity": "CRITICAL",
+      "message": "Authorization tests exist",
+      "blocking": true
+    },
+    {
+      "rule_id": "TEST-003",
+      "dimension": "testing_mocking",
+      "severity": "HIGH",
+      "message": "Failure-path tests exist",
+      "blocking": false
+    },
+    {
+      "rule_id": "TEST-004",
+      "dimension": "testing_mocking",
+      "severity": "HIGH",
+      "message": "Scenario-based mock data exists",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-001",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Liveness endpoint is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-002",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Readiness endpoint is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-003",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Dependency health endpoint is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-004",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Capability health endpoint is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-005",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Business-impact endpoint is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "HLTH-006",
+      "dimension": "health_impact",
+      "severity": "HIGH",
+      "message": "Required health paths exist in OpenAPI",
+      "blocking": false
+    },
+    {
+      "rule_id": "AI-001",
+      "dimension": "ai_mcp_a2a",
+      "severity": "CRITICAL",
+      "message": "MCP exposure is governed",
+      "blocking": true
+    },
+    {
+      "rule_id": "LIFE-001",
+      "dimension": "lifecycle_reuse",
+      "severity": "HIGH",
+      "message": "Versioning strategy is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "LIFE-002",
+      "dimension": "lifecycle_reuse",
+      "severity": "HIGH",
+      "message": "Deprecation policy is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "LIFE-003",
+      "dimension": "lifecycle_reuse",
+      "severity": "HIGH",
+      "message": "Compatibility policy is declared",
+      "blocking": false
+    },
+    {
+      "rule_id": "LIFE-004",
+      "dimension": "lifecycle_reuse",
+      "severity": "HIGH",
+      "message": "Reuse target is declared",
+      "blocking": false
+    }
+  ]
+}

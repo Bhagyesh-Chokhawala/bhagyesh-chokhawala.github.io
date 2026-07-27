@@ -1,0 +1,60 @@
+api:
+  name: customer-disconnect-api
+  version: 1.0.0
+  layer: process
+  business_outcome: Coordinate a recoverable customer service disconnect transaction.
+  capability: Customer Service Lifecycle Management
+  risk_tier: high
+  owners: {business: Customer Operations, technical: Service Lifecycle Engineering}
+  consumers: [customer-web, agent-desktop, operations-console, ai-assistant]
+contracts:
+  openapi: openapi.yaml
+  backward_compatibility: true
+  error_model: true
+lean:
+  resource_oriented: true
+  screen_specific: false
+  collection_detail_separated: true
+  payload_right_sized: true
+  reusable: true
+security:
+  authentication: OAuth2/OIDC
+  actor_subject_model: true
+  object_level_authorization: true
+  policy_as_code: true
+  acting_modes: [self_service, delegated, operational_override, system_initiated]
+integrity:
+  nosql: true
+  aggregate_owner: customer-disconnect-domain
+  single_writer: true
+  concurrency_control: version-etag
+  idempotency: true
+  outbox_inbox: true
+  projection_freshness: true
+  reconciliation: true
+  saga_or_compensation: true
+observability:
+  traceparent: true
+  correlation_id: true
+  business_transaction_id: true
+  structured_logs: true
+  audit: true
+health:
+  live: /health/live
+  ready: /health/ready
+  dependencies: /health/dependencies
+  capabilities: /health/capabilities
+  impact: /health/impact
+ai:
+  mcp: {enabled: true, scoped_tools: true, object_level_authorization: true, audit: true, approval_for_high_risk: true}
+  a2a: {enabled: true, agent_identity: true, delegation_chain: true, task_status: true, audit: true}
+testing:
+  contract_tests: tests/contract
+  authorization_tests: tests/security
+  failure_path_tests: tests/failure
+  mock_scenarios: mocks/scenarios.yaml
+lifecycle:
+  versioning: semantic-versioning
+  deprecation: minimum-180-day-notice
+  compatibility: backward-compatible-by-default
+  reuse_target: true
