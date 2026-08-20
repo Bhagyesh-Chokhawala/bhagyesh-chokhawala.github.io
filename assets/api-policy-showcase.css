@@ -1,16 +1,83 @@
 
+.portal-showcases {
+  position: relative;
+  margin: 3.5rem 0;
+}
+.portal-showcase-scroller {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scrollbar-color: #174ea6 #dbe5f7;
+  scrollbar-width: thin;
+  padding: 0 0 .75rem;
+}
+.portal-showcase-scroller:focus-visible {
+  outline: 3px solid #8ab4f8;
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
 .api-policy-showcase {
+  flex: 0 0 100%;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
   gap: 2rem;
   align-items: center;
-  margin: 3.5rem 0;
+  margin: 0;
   padding: clamp(1.5rem, 4vw, 2.75rem);
   border: 1px solid #c9d7f5;
   border-radius: 1rem;
   background: linear-gradient(135deg, #f8fbff 0%, #eef3ff 100%);
   box-shadow: 0 18px 45px rgba(23, 78, 166, .08);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
+.enterprise-ai-showcase {
+  border-color: #b9dfd7;
+  background: linear-gradient(135deg, #f7fcfb 0%, #e9f7f4 100%);
+  box-shadow: 0 18px 45px rgba(8, 127, 130, .09);
+}
+.portal-carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  width: 2.5rem;
+  height: 4rem;
+  place-items: center;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 1px solid rgba(23, 78, 166, .38);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .2), rgba(23, 78, 166, .2));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #174ea6;
+  box-shadow:
+    inset 2px 2px 2px rgba(255, 255, 255, .65),
+    inset -3px -3px 5px rgba(23, 49, 95, .22),
+    0 8px 14px rgba(23, 49, 95, .24),
+    0 2px 3px rgba(23, 49, 95, .2);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 800;
+  text-shadow: 1px 1px 0 rgba(255,255,255,.85), 2px 3px 3px rgba(23,49,95,.28);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.portal-carousel-previous { left: 0; border-radius: 0 .85rem .85rem 0; }
+.portal-carousel-next { right: 0; border-radius: .85rem 0 0 .85rem; }
+.portal-carousel-control:hover,
+.portal-carousel-control:focus-visible {
+  transform: translateY(-50%) scale(1.06);
+  background: linear-gradient(145deg, rgba(255,255,255,.2), rgba(23,78,166,.32));
+  color: #0b3d91;
+  box-shadow:
+    inset 2px 2px 3px rgba(255,255,255,.75),
+    inset -4px -4px 6px rgba(23,49,95,.28),
+    0 11px 18px rgba(23,49,95,.3);
+}
+.portal-carousel-control:disabled { visibility: hidden; }
 .api-policy-showcase h2 { margin: .35rem 0 1rem; }
 .api-policy-lead { max-width: 700px; font-size: 1.06rem; }
 .api-policy-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }

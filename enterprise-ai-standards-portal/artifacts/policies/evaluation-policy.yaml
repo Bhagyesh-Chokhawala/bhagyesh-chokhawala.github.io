@@ -1,0 +1,22 @@
+policy:
+  id: evaluation
+  version: 1.0
+  controls:
+    - AI-EVAL-001
+  triggers:
+    - model_change
+    - prompt_change
+    - retrieval_change
+    - embedding_change
+    - agent_workflow_change
+    - tool_change
+    - safety_policy_change
+  evidence:
+    - task_quality
+    - groundedness
+    - hallucination
+    - safety
+    - security
+    - tool_correctness
+    - performance
+    - cost

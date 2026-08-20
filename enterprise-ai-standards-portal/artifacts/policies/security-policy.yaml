@@ -1,0 +1,11 @@
+policy:
+  id: security
+  version: 1.0
+  decision: block_on_mandatory_failure
+  controls:
+    - AI-SEC-001
+    - AI-SEC-002
+    - AI-SEC-003
+    - AI-SEC-004
+    - AI-SEC-005
+  required_for_risk_tiers: [R2, R3, R4]

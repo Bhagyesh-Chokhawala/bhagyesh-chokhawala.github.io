@@ -1,0 +1,1270 @@
+[
+  {
+    "id": "AI-ARCH-001",
+    "title": "Architectural Separation",
+    "domain": "Architecture",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Separate systems of engagement, AI intelligence/orchestration, controlled action layers, and systems of record. AI output alone is not authoritative enterprise state.",
+    "phases": [
+      "Architecture",
+      "Implementation"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Governance",
+      "Security"
+    ],
+    "checks": [
+      "Identify system of record and ownership",
+      "Separate AI inference from authoritative state",
+      "Enforce policy before state-changing execution",
+      "Document transaction, audit, and failure boundaries"
+    ],
+    "evidence": [
+      "Approved architecture diagram",
+      "System context/data-flow diagram",
+      "System-of-record ownership record",
+      "Failure and compensation design"
+    ],
+    "tags": [
+      "architecture",
+      "system-of-record",
+      "boundaries"
+    ],
+    "artifactPath": "artifacts/architecture/AI-ARCH-001.md"
+  },
+  {
+    "id": "AI-INT-001",
+    "title": "Controlled API and Tool Invocation",
+    "domain": "Architecture",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "AI agents may invoke only bounded, schema-defined, authorized tools and domain APIs through controlled execution paths.",
+    "phases": [
+      "Architecture",
+      "Implementation"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "Governance"
+    ],
+    "checks": [
+      "Define tool identifier and business capability",
+      "Validate caller identity and authorization",
+      "Validate input/output schema",
+      "Define timeout, retry, idempotency and compensation",
+      "Record every action in an audit trail"
+    ],
+    "evidence": [
+      "Tool registry",
+      "API contract",
+      "Authorization policy",
+      "Tool execution audit sample"
+    ],
+    "tags": [
+      "agent",
+      "tool",
+      "api"
+    ],
+    "artifactPath": "artifacts/architecture/AI-INT-001.md"
+  },
+  {
+    "id": "AI-TXN-001",
+    "title": "Transaction Integrity for AI Actions",
+    "domain": "Architecture",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "AI-generated decisions must use controlled business transactions; models must not directly mutate authoritative enterprise state.",
+    "phases": [
+      "Architecture",
+      "Implementation"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "User Trust & Completeness",
+      "Governance"
+    ],
+    "checks": [
+      "Route state changes through domain transaction APIs",
+      "Implement idempotency and concurrency protection",
+      "Define atomicity or compensation",
+      "Preserve correlation and audit identifiers",
+      "Require approval for high-impact actions"
+    ],
+    "evidence": [
+      "Transaction sequence diagram",
+      "Idempotency test",
+      "Compensation test",
+      "Approval boundary definition"
+    ],
+    "tags": [
+      "transaction",
+      "integrity",
+      "api"
+    ],
+    "artifactPath": "artifacts/architecture/AI-TXN-001.md"
+  },
+  {
+    "id": "AI-DATA-001",
+    "title": "Trusted Data and Knowledge Sources",
+    "domain": "Data & Knowledge",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production AI must identify authoritative data and knowledge sources with ownership, classification, lineage, retention, quality, and permitted AI usage.",
+    "phases": [
+      "Architecture",
+      "Implementation"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "Governance"
+    ],
+    "checks": [
+      "Assign data owner/steward",
+      "Classify sensitivity",
+      "Document lineage and freshness",
+      "Define retention and permitted AI use",
+      "Validate data quality expectations"
+    ],
+    "evidence": [
+      "Data inventory",
+      "Classification record",
+      "Lineage view",
+      "Data quality report"
+    ],
+    "tags": [
+      "data",
+      "lineage",
+      "classification"
+    ],
+    "artifactPath": "artifacts/data/AI-DATA-001.md"
+  },
+  {
+    "id": "AI-RAG-001",
+    "title": "Grounded and Authorized Retrieval",
+    "domain": "AI Engineering",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "RAG implementations must preserve authorization, provenance, source traceability, and tenant isolation while treating retrieved content as untrusted input.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "User Trust & Completeness"
+    ],
+    "checks": [
+      "Filter retrieval by user authorization",
+      "Preserve source identifiers and provenance",
+      "Prevent cross-tenant retrieval",
+      "Validate context relevance and source freshness",
+      "Treat retrieved instructions as untrusted content"
+    ],
+    "evidence": [
+      "Retrieval authorization tests",
+      "Groundedness evaluation",
+      "Cross-tenant isolation test",
+      "Provenance sample"
+    ],
+    "tags": [
+      "rag",
+      "retrieval",
+      "grounding"
+    ],
+    "artifactPath": "artifacts/ai-engineering/AI-RAG-001.md"
+  },
+  {
+    "id": "AI-MODEL-001",
+    "title": "Governed Model Access",
+    "domain": "AI Engineering",
+    "type": "Standard",
+    "requirement": "SHOULD",
+    "summary": "Use an enterprise model gateway or equivalent control point for model allow-listing, provider routing, data policy, logging, cost controls, and versioning.",
+    "phases": [
+      "Architecture",
+      "Implementation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Developer Enablement",
+      "Security"
+    ],
+    "checks": [
+      "Use approved model/provider list",
+      "Enforce data retention and region policies",
+      "Apply token, rate and cost limits",
+      "Log model/version and route decisions",
+      "Define provider/model failover"
+    ],
+    "evidence": [
+      "Model registry",
+      "Gateway configuration",
+      "Provider assessment",
+      "Cost/rate policy"
+    ],
+    "tags": [
+      "model",
+      "gateway",
+      "provider"
+    ],
+    "artifactPath": "artifacts/ai-engineering/AI-MODEL-001.md"
+  },
+  {
+    "id": "AI-PROMPT-001",
+    "title": "Prompt Versioning and Secure Prompt Management",
+    "domain": "AI Engineering",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production prompts are version-controlled engineering assets with owners, model compatibility, schemas, risk classification, and evaluation suites.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Developer Enablement",
+      "Security",
+      "Governance"
+    ],
+    "checks": [
+      "Version prompts in source control",
+      "Declare owner, purpose and compatible models",
+      "Prohibit secrets and credentials in prompts",
+      "Bind prompt changes to regression evaluation",
+      "Record deployed prompt version"
+    ],
+    "evidence": [
+      "Prompt manifest",
+      "Source-control history",
+      "Secret scan",
+      "Prompt regression results"
+    ],
+    "tags": [
+      "prompt",
+      "versioning",
+      "secure-development"
+    ],
+    "artifactPath": "artifacts/ai-engineering/AI-PROMPT-001.md"
+  },
+  {
+    "id": "AI-AGENT-001",
+    "title": "Explicit Agent Authority Boundaries",
+    "domain": "AI Engineering",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Every production agent must declare goal, allowed knowledge, tools, decisions, actions, human approval boundaries, resource budgets, and termination conditions.",
+    "phases": [
+      "Architecture",
+      "Implementation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "Ethics",
+      "Governance"
+    ],
+    "checks": [
+      "Define goal and allowed knowledge",
+      "Allow-list tools and actions",
+      "Set execution-step, token, time and cost limits",
+      "Define human escalation and approval",
+      "Provide kill switch and termination conditions"
+    ],
+    "evidence": [
+      "Agent manifest",
+      "Tool allow-list",
+      "Budget configuration",
+      "Human-approval workflow",
+      "Kill-switch test"
+    ],
+    "tags": [
+      "agent",
+      "autonomy",
+      "tools"
+    ],
+    "artifactPath": "artifacts/ai-engineering/AI-AGENT-001.md"
+  },
+  {
+    "id": "AI-SEC-001",
+    "title": "Attributable Identity for AI Actions",
+    "domain": "Security",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Protected AI interactions and tool actions must be attributable to user, application, agent, and tool identities where applicable.",
+    "phases": [
+      "Architecture",
+      "Implementation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Governance"
+    ],
+    "checks": [
+      "Authenticate protected interactions",
+      "Propagate user and service identity",
+      "Use distinct agent/tool identity when practical",
+      "Avoid shared generic administrative credentials"
+    ],
+    "evidence": [
+      "IAM design",
+      "Identity propagation test",
+      "Authentication logs"
+    ],
+    "tags": [
+      "iam",
+      "identity",
+      "audit"
+    ],
+    "artifactPath": "artifacts/security/AI-SEC-001.md"
+  },
+  {
+    "id": "AI-SEC-002",
+    "title": "Least Privilege for Agents and Tools",
+    "domain": "Security",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Agents and tools must receive only the permissions necessary for the assigned business capability and risk tier.",
+    "phases": [
+      "Architecture",
+      "Implementation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Governance"
+    ],
+    "checks": [
+      "Use scoped roles and permissions",
+      "Prohibit generic admin tokens",
+      "Review privilege changes",
+      "Expire or rotate short-lived credentials",
+      "Separate read, propose and execute privileges"
+    ],
+    "evidence": [
+      "Role matrix",
+      "Permission test",
+      "Credential policy",
+      "Access review record"
+    ],
+    "tags": [
+      "least-privilege",
+      "authorization",
+      "agent"
+    ],
+    "artifactPath": "artifacts/security/AI-SEC-002.md"
+  },
+  {
+    "id": "AI-SEC-003",
+    "title": "Prompt Injection and Untrusted Content Defense",
+    "domain": "Security",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "User input and retrieved content must be treated as untrusted and must not be able to redefine system authority, permissions, or safety policies.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Technology Readiness"
+    ],
+    "checks": [
+      "Separate trusted instructions from untrusted context",
+      "Test direct and indirect prompt injection",
+      "Constrain tools with independent authorization",
+      "Sanitize or isolate active content when applicable",
+      "Monitor anomalous instruction patterns"
+    ],
+    "evidence": [
+      "Prompt injection test results",
+      "Tool authorization evidence",
+      "Adversarial evaluation report"
+    ],
+    "tags": [
+      "prompt-injection",
+      "security",
+      "rag"
+    ],
+    "artifactPath": "artifacts/security/AI-SEC-003.md"
+  },
+  {
+    "id": "AI-SEC-004",
+    "title": "Secrets and Credential Management",
+    "domain": "Security",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Secrets must use approved secret-management controls and must not appear in prompts, source code, model context, or logs.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation",
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Developer Enablement"
+    ],
+    "checks": [
+      "Store secrets in approved secret manager",
+      "Run secret scanning in CI",
+      "Use short-lived credentials where possible",
+      "Redact sensitive values from telemetry",
+      "Rotate compromised credentials"
+    ],
+    "evidence": [
+      "Secret-scan result",
+      "Secrets manager configuration",
+      "Credential rotation record"
+    ],
+    "tags": [
+      "secrets",
+      "credentials",
+      "ci-cd"
+    ],
+    "artifactPath": "artifacts/security/AI-SEC-004.md"
+  },
+  {
+    "id": "AI-SEC-005",
+    "title": "AI Output Validation",
+    "domain": "Security",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Model output must be treated as untrusted before execution, rendering, storage, API submission, query construction, or system-of-record update.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "User Trust & Completeness"
+    ],
+    "checks": [
+      "Validate structured output against schema",
+      "Escape or sanitize rendered output",
+      "Do not execute generated code or commands without independent controls",
+      "Validate identifiers and target resources before actions"
+    ],
+    "evidence": [
+      "Schema-validation tests",
+      "Output sanitization tests",
+      "Tool action validation tests"
+    ],
+    "tags": [
+      "output-validation",
+      "security",
+      "schema"
+    ],
+    "artifactPath": "artifacts/security/AI-SEC-005.md"
+  },
+  {
+    "id": "AI-ETH-001",
+    "title": "Human Impact and Ethical Risk Assessment",
+    "domain": "Ethics",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Medium- and high-risk AI use cases must assess affected users, potential harms, bias, contestability, accessibility, and human review requirements.",
+    "phases": [
+      "Architecture",
+      "Build & Evaluation",
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Ethics",
+      "User Trust & Completeness",
+      "Governance"
+    ],
+    "checks": [
+      "Identify affected stakeholder groups",
+      "Assess material harms and disparate impacts",
+      "Define human review and appeal",
+      "Evaluate accessibility and inclusion",
+      "Document mitigation and residual risk"
+    ],
+    "evidence": [
+      "AI impact assessment",
+      "Bias/fairness evaluation",
+      "Human oversight design",
+      "Residual-risk acceptance"
+    ],
+    "tags": [
+      "ethics",
+      "impact",
+      "fairness"
+    ],
+    "artifactPath": "artifacts/ethics/AI-ETH-001.md"
+  },
+  {
+    "id": "AI-ETH-002",
+    "title": "Transparency and AI Disclosure",
+    "domain": "Ethics",
+    "type": "Standard",
+    "requirement": "SHOULD",
+    "summary": "Users should be informed when AI materially contributes to recommendations, decisions, generated responses, or automated actions.",
+    "phases": [
+      "Implementation",
+      "Deployment",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Ethics",
+      "User Trust & Completeness"
+    ],
+    "checks": [
+      "Disclose material AI participation",
+      "Explain limitations where relevant",
+      "Provide provenance or rationale for consequential outputs",
+      "Avoid deceptive human-like representation"
+    ],
+    "evidence": [
+      "UI disclosure evidence",
+      "Explanation sample",
+      "User research or accessibility review"
+    ],
+    "tags": [
+      "transparency",
+      "disclosure",
+      "trust"
+    ],
+    "artifactPath": "artifacts/ethics/AI-ETH-002.md"
+  },
+  {
+    "id": "AI-ETH-003",
+    "title": "Human Oversight and Redress",
+    "domain": "Ethics",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "High-impact AI decisions require defined human oversight, override, escalation, and redress pathways appropriate to the risk tier.",
+    "phases": [
+      "Architecture",
+      "Implementation",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Ethics",
+      "User Trust & Completeness",
+      "Operating Model"
+    ],
+    "checks": [
+      "Define when human approval is mandatory",
+      "Provide user/operator override",
+      "Define escalation and appeal paths",
+      "Log human overrides and reasons",
+      "Review recurring overrides for systemic issues"
+    ],
+    "evidence": [
+      "Human-in-the-loop workflow",
+      "Override test",
+      "Appeal/redress procedure",
+      "Override analytics"
+    ],
+    "tags": [
+      "human-in-loop",
+      "redress",
+      "oversight"
+    ],
+    "artifactPath": "artifacts/ethics/AI-ETH-003.md"
+  },
+  {
+    "id": "AI-DEVX-001",
+    "title": "Governed Developer Enablement",
+    "domain": "Developer Experience",
+    "type": "Standard",
+    "requirement": "SHOULD",
+    "summary": "The governed path should be the easiest delivery path through reusable SDKs, templates, evaluation harnesses, observability libraries, and CI/CD controls.",
+    "phases": [
+      "Implementation",
+      "Build & Evaluation"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Developer Enablement",
+      "Governance"
+    ],
+    "checks": [
+      "Provide approved model/RAG/agent templates",
+      "Provide policy and observability libraries",
+      "Provide evaluation test harnesses",
+      "Document reference architectures",
+      "Maintain self-service onboarding"
+    ],
+    "evidence": [
+      "SDK/template repository",
+      "Reference implementation",
+      "Developer onboarding guide",
+      "Adoption metrics"
+    ],
+    "tags": [
+      "devex",
+      "sdk",
+      "templates"
+    ],
+    "artifactPath": "artifacts/devex/AI-DEVX-001.md"
+  },
+  {
+    "id": "AI-EVAL-001",
+    "title": "Regression and Risk Evaluation",
+    "domain": "Evaluation",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Material changes to model, prompt, retrieval, embeddings, agent workflow, tool set, or safety policy must trigger applicable regression and risk evaluation.",
+    "phases": [
+      "Build & Evaluation",
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "Ethics",
+      "Governance"
+    ],
+    "checks": [
+      "Evaluate task quality and groundedness",
+      "Evaluate hallucination and safety",
+      "Evaluate prompt-injection resistance",
+      "Evaluate tool correctness",
+      "Evaluate latency and cost",
+      "Evaluate bias when applicable"
+    ],
+    "evidence": [
+      "Evaluation report",
+      "Baseline comparison",
+      "Security evaluation",
+      "Performance/cost results"
+    ],
+    "tags": [
+      "evaluation",
+      "regression",
+      "quality"
+    ],
+    "artifactPath": "artifacts/evaluation/AI-EVAL-001.md"
+  },
+  {
+    "id": "AI-DEP-001",
+    "title": "Environment Separation",
+    "domain": "Deployment",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production AI workloads, credentials, data access, and policy configurations must be separated from development, experimentation, and evaluation environments.",
+    "phases": [
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Technology Readiness",
+      "Operating Model"
+    ],
+    "checks": [
+      "Separate production credentials and secrets",
+      "Prevent development access to production-only resources",
+      "Use environment-specific configuration",
+      "Control promotion between environments"
+    ],
+    "evidence": [
+      "Environment architecture",
+      "Credential isolation test",
+      "Promotion workflow"
+    ],
+    "tags": [
+      "deployment",
+      "environment",
+      "isolation"
+    ],
+    "artifactPath": "artifacts/deployment/AI-DEP-001.md"
+  },
+  {
+    "id": "AI-DEP-002",
+    "title": "Versioned AI Deployment Unit",
+    "domain": "Deployment",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Every release must pin application, model, prompt, RAG configuration, embedding/index, policy, tool configuration, and evaluation versions.",
+    "phases": [
+      "Deployment",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Governance",
+      "Operating Model"
+    ],
+    "checks": [
+      "Create immutable release identifier",
+      "Pin model and prompt versions",
+      "Record retrieval/index version",
+      "Record policy and tool configuration",
+      "Link release to evaluation evidence"
+    ],
+    "evidence": [
+      "AI release manifest",
+      "Artifact checksums",
+      "Evaluation linkage"
+    ],
+    "tags": [
+      "release",
+      "versioning",
+      "manifest"
+    ],
+    "artifactPath": "artifacts/deployment/AI-DEP-002.md"
+  },
+  {
+    "id": "AI-DEP-003",
+    "title": "Risk-Based Production Deployment Gate",
+    "domain": "Deployment",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production promotion must require strategic fit, readiness, risk/control, security/ethics, production readiness, and post-launch value checkpoints appropriate to risk.",
+    "phases": [
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Governance",
+      "Security",
+      "Ethics",
+      "Business Value"
+    ],
+    "checks": [
+      "Assign risk tier before promotion",
+      "Block on failed mandatory controls",
+      "Collect architecture/security/ethics/evaluation evidence",
+      "Verify runbook and rollback",
+      "Record release decision and exceptions"
+    ],
+    "evidence": [
+      "Gate decision record",
+      "Risk tier record",
+      "Evidence bundle",
+      "Exception approvals"
+    ],
+    "tags": [
+      "gate",
+      "release",
+      "governance"
+    ],
+    "artifactPath": "artifacts/deployment/AI-DEP-003.md"
+  },
+  {
+    "id": "AI-DEP-004",
+    "title": "Progressive AI Rollout",
+    "domain": "Deployment",
+    "type": "Standard",
+    "requirement": "SHOULD",
+    "summary": "High-impact AI solutions should progress through offline evaluation, shadow mode, controlled cohorts, and staged production exposure with stop thresholds.",
+    "phases": [
+      "Deployment",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Security",
+      "User Trust & Completeness"
+    ],
+    "checks": [
+      "Define rollout stages and cohorts",
+      "Set automatic/manual stop thresholds",
+      "Monitor quality, safety, latency, cost and incidents",
+      "Require explicit promotion decisions"
+    ],
+    "evidence": [
+      "Rollout plan",
+      "Canary metrics",
+      "Promotion decisions",
+      "Stop-threshold configuration"
+    ],
+    "tags": [
+      "progressive-delivery",
+      "canary",
+      "rollout"
+    ],
+    "artifactPath": "artifacts/deployment/AI-DEP-004.md"
+  },
+  {
+    "id": "AI-DEP-005",
+    "title": "Multicomponent AI Rollback",
+    "domain": "Deployment",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Rollback must cover application, model, prompt, policy, retriever/index, and agent/tool configuration, with a known-safe release configuration.",
+    "phases": [
+      "Deployment",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Operating Model",
+      "Security"
+    ],
+    "checks": [
+      "Define known-safe configuration",
+      "Test model and prompt rollback",
+      "Test retriever/index rollback",
+      "Test policy and tool rollback",
+      "Define rollback authority and recovery objective"
+    ],
+    "evidence": [
+      "Rollback runbook",
+      "Rollback test evidence",
+      "Known-safe manifest"
+    ],
+    "tags": [
+      "rollback",
+      "recovery",
+      "deployment"
+    ],
+    "artifactPath": "artifacts/deployment/AI-DEP-005.md"
+  },
+  {
+    "id": "AI-OPS-001",
+    "title": "Four-Plane AI Observability",
+    "domain": "Operations",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production AI must expose system, AI, business, and governance telemetry sufficient to detect quality, security, cost, and outcome degradation.",
+    "phases": [
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Business Value",
+      "Governance"
+    ],
+    "checks": [
+      "Monitor system latency/errors/availability",
+      "Monitor model, token, retrieval and tool behavior",
+      "Monitor task and business outcomes",
+      "Monitor policy, security and human-override events"
+    ],
+    "evidence": [
+      "Dashboard",
+      "Alert configuration",
+      "Telemetry schema",
+      "Operational review record"
+    ],
+    "tags": [
+      "observability",
+      "telemetry",
+      "monitoring"
+    ],
+    "artifactPath": "artifacts/operations/AI-OPS-001.md"
+  },
+  {
+    "id": "AI-OPS-002",
+    "title": "End-to-End AI Traceability",
+    "domain": "Operations",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Production AI interactions must be traceable across correlation ID, identities, prompt/model version, retrieval, tool calls, policy decisions, approvals, and business result.",
+    "phases": [
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Governance",
+      "Security",
+      "Technology Readiness"
+    ],
+    "checks": [
+      "Generate correlation identifier",
+      "Record relevant component versions",
+      "Trace retrieved sources and tool calls",
+      "Trace policy and human approval decisions",
+      "Protect sensitive prompt content according to privacy policy"
+    ],
+    "evidence": [
+      "Trace sample",
+      "Logging schema",
+      "Retention policy",
+      "Audit query example"
+    ],
+    "tags": [
+      "trace",
+      "audit",
+      "correlation"
+    ],
+    "artifactPath": "artifacts/operations/AI-OPS-002.md"
+  },
+  {
+    "id": "AI-OPS-003",
+    "title": "Runtime Safety and Kill Switch",
+    "domain": "Operations",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Agentic and high-impact AI deployments must support rapid suspension of model, tool, workflow, tenant, or autonomous behavior without full application redeployment.",
+    "phases": [
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Operating Model",
+      "Governance"
+    ],
+    "checks": [
+      "Provide disable-agent control",
+      "Provide disable-tool/model/workflow controls",
+      "Allow forced human approval mode",
+      "Support affected-tenant or use-case isolation",
+      "Test emergency procedures"
+    ],
+    "evidence": [
+      "Kill-switch runbook",
+      "Emergency test",
+      "Access-control list for emergency actions"
+    ],
+    "tags": [
+      "kill-switch",
+      "safety",
+      "agent"
+    ],
+    "artifactPath": "artifacts/operations/AI-OPS-003.md"
+  },
+  {
+    "id": "AI-OPS-004",
+    "title": "AI-Specific Incident Response",
+    "domain": "Operations",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Operational processes must classify and respond to AI incidents such as harmful action, data disclosure, unauthorized action, systematic hallucination, bias, prompt injection, and provider degradation.",
+    "phases": [
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Security",
+      "Ethics",
+      "Operating Model"
+    ],
+    "checks": [
+      "Define AI incident categories and severities",
+      "Define containment and rollback actions",
+      "Preserve evidence for investigation",
+      "Notify appropriate security/ethics/business owners",
+      "Feed lessons into evaluation and policy updates"
+    ],
+    "evidence": [
+      "AI incident playbook",
+      "Escalation matrix",
+      "Post-incident review template"
+    ],
+    "tags": [
+      "incident",
+      "response",
+      "safety"
+    ],
+    "artifactPath": "artifacts/operations/AI-OPS-004.md"
+  },
+  {
+    "id": "AI-OPS-005",
+    "title": "AI Service Level Objectives",
+    "domain": "Operations",
+    "type": "Standard",
+    "requirement": "SHOULD",
+    "summary": "Production AI should define measurable thresholds for availability, latency, task completion, groundedness, unsafe outputs, tool failures, escalation, and cost.",
+    "phases": [
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Technology Readiness",
+      "Business Value",
+      "User Trust & Completeness"
+    ],
+    "checks": [
+      "Define risk-appropriate SLOs",
+      "Measure business and AI quality together",
+      "Alert on threshold breach",
+      "Review cost per successful task",
+      "Link SLO breach to operational response"
+    ],
+    "evidence": [
+      "SLO document",
+      "Dashboard",
+      "Alert thresholds",
+      "Monthly service review"
+    ],
+    "tags": [
+      "slo",
+      "reliability",
+      "cost"
+    ],
+    "artifactPath": "artifacts/operations/AI-OPS-005.md"
+  },
+  {
+    "id": "AI-GOV-001",
+    "title": "AI Risk Classification",
+    "domain": "Governance",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Every AI use case must be assigned a risk tier based on impact, autonomy, data sensitivity, affected users, and consequences of failure before production release.",
+    "phases": [
+      "Architecture",
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Governance",
+      "Security",
+      "Ethics"
+    ],
+    "checks": [
+      "Assess autonomy and impact",
+      "Assess data sensitivity",
+      "Assess user/operational consequences",
+      "Assign R1-R4 tier",
+      "Reassess after material scope or autonomy changes"
+    ],
+    "evidence": [
+      "Risk assessment",
+      "Risk tier decision",
+      "Reassessment trigger"
+    ],
+    "tags": [
+      "risk-tier",
+      "governance",
+      "classification"
+    ],
+    "artifactPath": "artifacts/governance/AI-GOV-001.md"
+  },
+  {
+    "id": "AI-GOV-002",
+    "title": "Traffic-Light Compliance Decision",
+    "domain": "Governance",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Mandatory control failure results in Red/blocked status; Amber requires a documented, time-bound exception; Green requires all mandatory controls.",
+    "phases": [
+      "Build & Evaluation",
+      "Deployment"
+    ],
+    "riskTiers": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Governance",
+      "Operating Model"
+    ],
+    "checks": [
+      "Compute status from mandatory controls",
+      "Block production on Red",
+      "Require owner, expiry and compensating controls for Amber",
+      "Document N/A rationale",
+      "Retain release decision"
+    ],
+    "evidence": [
+      "Compliance report",
+      "Exception record",
+      "Release decision"
+    ],
+    "tags": [
+      "traffic-light",
+      "gate",
+      "exception"
+    ],
+    "artifactPath": "artifacts/governance/AI-GOV-002.md"
+  },
+  {
+    "id": "AI-GOV-003",
+    "title": "Production Release Evidence Bundle",
+    "domain": "Governance",
+    "type": "Standard",
+    "requirement": "MUST",
+    "summary": "Each production release must retain traceable evidence linking architecture, model/provider, security, ethics, evaluation, operations, and approval decisions.",
+    "phases": [
+      "Deployment",
+      "Runtime"
+    ],
+    "riskTiers": [
+      "R2",
+      "R3",
+      "R4"
+    ],
+    "framework": [
+      "Governance",
+      "Security",
+      "Ethics",
+      "Operating Model"
+    ],
+    "checks": [
+      "Create release evidence directory or equivalent system record",
+      "Link evidence to immutable release ID",
+      "Protect evidence from unauthorized modification",
+      "Retain according to policy",
+      "Make evidence queryable for audit and incident review"
+    ],
+    "evidence": [
+      "Release evidence manifest",
+      "Architecture evidence",
+      "Security and ethics evidence",
+      "Evaluation report",
+      "Runbook and rollback plan",
+      "Approval decision"
+    ],
+    "tags": [
+      "evidence",
+      "audit",
+      "release"
+    ],
+    "artifactPath": "artifacts/governance/AI-GOV-003.md"
+  }
+]

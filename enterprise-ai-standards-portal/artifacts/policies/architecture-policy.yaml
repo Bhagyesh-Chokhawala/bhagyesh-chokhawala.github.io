@@ -1,0 +1,10 @@
+policy:
+  id: architecture
+  version: 1.0
+  decision: block_on_mandatory_failure
+  controls:
+    - AI-ARCH-001
+    - AI-INT-001
+    - AI-TXN-001
+    - AI-DATA-001
+    - AI-GOV-001

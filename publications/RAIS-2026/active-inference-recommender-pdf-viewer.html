@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentation Viewer — Active Inference Recommender Architecture</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .pdf-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin:1rem 0}
+    canvas{border:1px solid #ddd;max-width:100%;height:auto}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <h1>Presentation Viewer</h1>
+      <p class="lead">Active Inference as an Intrinsically Explainable Recommender Architecture via Epistemic-Pragmatic Score Decomposition.</p>
+    </header>
+
+    <div class="pdf-controls">
+      <button id="prev" type="button">Prev</button>
+      <button id="next" type="button">Next</button>
+      <span>Page: <span id="page_num">0</span> / <span id="page_count">0</span></span>
+      <label>Scale: <input id="scale" type="number" value="1.0" step="0.1" min="0.5" max="3"></label>
+    </div>
+    <canvas id="pdf-canvas"></canvas>
+    <p id="fallback" style="color:#666">Loading <code>/publications/RAIS-2026/Active_Inference_Recommender_Conference_Presentation.pdf</code>…</p>
+  </main>
+
+  <script src="/publications/serp-26/pdfjs/pdf.min.js"></script>
+  <script>
+    const pdfPath = '/publications/RAIS-2026/Active_Inference_Recommender_Conference_Presentation.pdf';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/publications/serp-26/pdfjs/pdf.worker.min.js';
+    const loadingTask = pdfjsLib.getDocument(pdfPath);
+    let pdfDoc = null, pageNum = 1, scale = parseFloat(document.getElementById('scale').value);
+    const canvas = document.getElementById('pdf-canvas');
+    const context = canvas.getContext('2d');
+
+    loadingTask.promise.then(pdf => {
+      pdfDoc = pdf;
+      document.getElementById('page_count').textContent = pdfDoc.numPages;
+      document.getElementById('fallback').hidden = true;
+      renderPage(pageNum);
+    }).catch(error => {
+      document.getElementById('fallback').textContent = `Unable to load the PDF: ${error.message}`;
+    });
+
+    function renderPage(number) {
+      pdfDoc.getPage(number).then(page => {
+        const viewport = page.getViewport({scale});
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        page.render({canvasContext: context, viewport}).promise.then(() => {
+          document.getElementById('page_num').textContent = number;
+        });
+      });
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+      if (!pdfDoc || pageNum <= 1) return;
+      pageNum -= 1;
+      renderPage(pageNum);
+    });
+    document.getElementById('next').addEventListener('click', () => {
+      if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+      pageNum += 1;
+      renderPage(pageNum);
+    });
+    document.getElementById('scale').addEventListener('change', event => {
+      scale = parseFloat(event.target.value) || 1;
+      if (pdfDoc) renderPage(pageNum);
+    });
+  </script>
+</body>
+</html>

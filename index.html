@@ -49,6 +49,15 @@
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/#application",
+        "name": "Enterprise AI Standards & Governance Portal",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/",
+        "description": "An executable standards portal for balanced enterprise AI adoption, including normative controls, risk-based checkpoints, governance evidence, and deployment gates."
+      },
+      {
+        "@type": "SoftwareApplication",
         "@id": "https://bhagyesh-chokhawala.github.io/api-policy-portal/#application",
         "name": "Outcome-Centric API Policy Portal",
         "applicationCategory": "DeveloperApplication",
@@ -86,14 +95,7 @@
   <header class="site-header">
     <div class="site-header-inner">
       <a class="site-brand" href="/">Bhagyeshkumar Chokhawala</a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="/index.html" aria-current="page">Home</a>
-        <a href="/publications.html">Publications</a>
-        <a href="/publications.html#upcoming">Upcoming Publications</a>
-        <a href="/blogs.html">Blog Stories</a>
-        <a href="/api-policy-portal/">API Policy Portal</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
+      <nav class="site-nav" aria-label="Primary navigation" data-site-navigation></nav>
     </div>
   </header>
   <main id="main-content" class="container">
@@ -106,7 +108,13 @@
       <nav class="profile-links" aria-label="Research profile links">
         <a class="button" href="/publications.html">View Publications</a>
         <a class="button" href="/publications.html#upcoming">Upcoming Publications</a>
-        <a class="button" href="/api-policy-portal/">API Policy Portal</a>
+        <div class="profile-demo-dropdown">
+          <button class="button profile-dropdown-trigger" type="button" aria-haspopup="true">Demo Portals</button>
+          <div class="profile-dropdown-menu">
+            <a href="/api-policy-portal/">API Policy Portal</a>
+            <a href="/enterprise-ai-standards-portal/">Enterprise AI Standards Portal</a>
+          </div>
+        </div>
         <a class="button" href="https://scholar.google.com/citations?user=0yKHjlQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a class="button" href="https://orcid.org/0009-0001-5146-832X" target="_blank" rel="noopener noreferrer">ORCID</a>
         <a class="button" href="https://www.linkedin.com/in/bhagyeshchokhawala/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -126,25 +134,52 @@
       </ul>
     </section>
 
-    <section class="api-policy-showcase" aria-labelledby="api-policy-heading">
-      <div class="api-policy-copy">
-        <p class="eyebrow">Executable research demonstration</p>
-        <h2 id="api-policy-heading">Outcome-Centric API Policy Portal</h2>
-        <p class="api-policy-lead">Explore a working implementation of dimension-level API policy guidance and build-time validation gates. The portal exposes executed test logs, traffic-light decisions, dimension scores, failed gates, JSON evidence, Markdown reports, and JUnit results.</p>
-        <div class="api-policy-actions">
-          <a class="button api-policy-primary" href="/api-policy-portal/">Open the Portal</a>
-          <a class="button" href="/api-policy-portal/policies/">Browse Policies</a>
-          <a class="button" href="/api-policy-portal/reports/">Review Validation Runs</a>
-          <a class="button" href="/publications/serp-26/presentation.html">Presentation (in-page)</a>
-        </div>
+    <section class="portal-showcases" aria-label="Executable research demonstrations">
+      <button class="portal-carousel-control portal-carousel-previous" type="button" aria-label="Show previous demo portal" aria-controls="portal-showcase-carousel">‹</button>
+      <div id="portal-showcase-carousel" class="portal-showcase-scroller" tabindex="0" aria-label="Research portal cards">
+        <article class="api-policy-showcase enterprise-ai-showcase" aria-labelledby="enterprise-ai-heading">
+          <div class="api-policy-copy">
+            <p class="eyebrow">Executable research demonstration</p>
+            <h2 id="enterprise-ai-heading">Enterprise AI Standards &amp; Governance Portal</h2>
+            <p class="api-policy-lead">Explore an operational implementation of the Balanced Enterprise Architecture Framework for AI Adoption. The portal turns governance principles into searchable standards, risk-tier checkpoints, release evidence, security and ethics controls, and production deployment gates.</p>
+            <div class="api-policy-actions">
+              <a class="button api-policy-primary" href="/enterprise-ai-standards-portal/">Open the Portal</a>
+              <a class="button" href="/publications.html#upcoming">View Forthcoming Research</a>
+              <a class="button" href="/enterprise-ai-standards-portal/preview.html?file=artifacts%2Ftemplates%2Fai-release-evidence-manifest.yaml" target="_blank" rel="noopener noreferrer">Review Evidence Template</a>
+              <a class="button" href="/publications/RAIS-2026/presentation.html">Presentation (in-page)</a>
+            </div>
+          </div>
+          <div class="api-policy-evidence" aria-label="Enterprise AI standards portal summary">
+            <div class="policy-stat"><strong>31</strong><span>Normative controls</span></div>
+            <div class="policy-stat green"><strong>8</strong><span>Framework dimensions</span></div>
+            <div class="policy-stat amber"><strong>4</strong><span>Risk tiers</span></div>
+            <div class="policy-stat red"><strong>5</strong><span>Lifecycle stages</span></div>
+            <div class="policy-evidence-note">Standards, checkpoints, policy artifacts, and evidence templates for secure, ethical, and governable enterprise AI adoption.</div>
+          </div>
+        </article>
+
+        <article class="api-policy-showcase" aria-labelledby="api-policy-heading">
+          <div class="api-policy-copy">
+            <p class="eyebrow">Executable research demonstration</p>
+            <h2 id="api-policy-heading">Outcome-Centric API Policy Portal</h2>
+            <p class="api-policy-lead">Explore a working implementation of dimension-level API policy guidance and build-time validation gates. The portal exposes executed test logs, traffic-light decisions, dimension scores, failed gates, JSON evidence, Markdown reports, and JUnit results.</p>
+            <div class="api-policy-actions">
+              <a class="button api-policy-primary" href="/api-policy-portal/">Open the Portal</a>
+              <a class="button" href="/api-policy-portal/policies/">Browse Policies</a>
+              <a class="button" href="/api-policy-portal/reports/">Review Validation Runs</a>
+              <a class="button" href="/publications/serp-26/presentation.html">Presentation (in-page)</a>
+            </div>
+          </div>
+          <div class="api-policy-evidence" aria-label="API validation demonstration summary">
+            <div class="policy-stat"><strong>10</strong><span>Policy dimensions</span></div>
+            <div class="policy-stat green"><strong>100</strong><span>GREEN score</span></div>
+            <div class="policy-stat amber"><strong>98.3</strong><span>AMBER score</span></div>
+            <div class="policy-stat red"><strong>8.5</strong><span>RED score</span></div>
+            <div class="policy-evidence-note">Executed against three reference APIs with complete policy-validation logs and downloadable reports.</div>
+          </div>
+        </article>
       </div>
-      <div class="api-policy-evidence" aria-label="API validation demonstration summary">
-        <div class="policy-stat"><strong>10</strong><span>Policy dimensions</span></div>
-        <div class="policy-stat green"><strong>100</strong><span>GREEN score</span></div>
-        <div class="policy-stat amber"><strong>98.3</strong><span>AMBER score</span></div>
-        <div class="policy-stat red"><strong>8.5</strong><span>RED score</span></div>
-        <div class="policy-evidence-note">Executed against three reference APIs with complete policy-validation logs and downloadable reports.</div>
-      </div>
+      <button class="portal-carousel-control portal-carousel-next" type="button" aria-label="Show next demo portal" aria-controls="portal-showcase-carousel">›</button>
     </section>
 
     <section class="featured-section" aria-labelledby="featured-heading">

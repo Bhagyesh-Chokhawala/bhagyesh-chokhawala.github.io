@@ -1,0 +1,20 @@
+{
+  "framework": "Balanced Enterprise Architecture Framework for Secure and Ethical AI Adoption",
+  "generatedAt": "2026-08-20T12:00:00-04:00",
+  "riskTier": "R3",
+  "overallStatus": "AMBER",
+  "summary": {
+    "mandatoryControls": 24,
+    "mandatorySatisfied": 23,
+    "recommendedControls": 5,
+    "recommendedSatisfied": 4
+  },
+  "exceptions": [
+    {
+      "control": "AI-ETH-002",
+      "owner": "Product",
+      "expires": "2026-09-30",
+      "compensatingControl": "Human approval and explicit AI label on all consequential outputs"
+    }
+  ]
+}

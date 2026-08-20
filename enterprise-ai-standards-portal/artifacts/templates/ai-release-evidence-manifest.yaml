@@ -1,0 +1,32 @@
+release:
+  id: AI-RELEASE-YYYYMMDD-001
+  application_version: null
+  model:
+    provider: null
+    name: null
+    version: null
+  prompt_version: null
+  rag_configuration_version: null
+  embedding_version: null
+  knowledge_index_version: null
+  policy_version: null
+  tool_configuration_version: null
+  evaluation_suite_version: null
+  risk_tier: R2
+  business_owner: null
+  technical_owner: null
+  security_owner: null
+  governance_owner: null
+  evidence:
+    architecture: []
+    model_provider: []
+    security: []
+    ethics: []
+    evaluation: []
+    operations: []
+    approvals: []
+  release_decision:
+    status: RED
+    approved_by: []
+    approved_at: null
+    exceptions: []

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ai-release-assessment.schema.json",
+  "title": "Enterprise AI Release Assessment",
+  "type": "object",
+  "required": ["framework", "generatedAt", "riskTier", "controls"],
+  "properties": {
+    "framework": {"type": "string"},
+    "generatedAt": {"type": "string"},
+    "riskTier": {"enum": ["R1", "R2", "R3", "R4"]},
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "requirement", "satisfied"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^AI-[A-Z]+-[0-9]{3}$"},
+          "title": {"type": "string"},
+          "requirement": {"enum": ["MUST", "SHOULD", "MAY"]},
+          "satisfied": {"type": "boolean"},
+          "domain": {"type": "string"},
+          "phases": {"type": "array", "items": {"type": "string"}},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

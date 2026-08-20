@@ -1,0 +1,19 @@
+control_evidence:
+  control_id: AI-SEC-003
+  release_id: AI-RELEASE-YYYYMMDD-001
+  status: RED   # GREEN | AMBER | RED | NA
+  owner: null
+  assessed_at: null
+  evidence:
+    - type: test_result
+      uri: null
+      checksum: null
+  exception:
+    approved: false
+    owner: null
+    expires: null
+    rationale: null
+    compensating_controls: []
+  reviewer:
+    name: null
+    role: null

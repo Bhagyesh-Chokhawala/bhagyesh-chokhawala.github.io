@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Enterprise AI standards, guidelines, checkpoints, deployment gates and governance artifacts." />
+  <title>Enterprise AI Standards & Governance Portal</title>
+  <link rel="canonical" href="https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/" />
+  <meta property="og:title" content="Enterprise AI Standards & Governance Portal" />
+  <meta property="og:description" content="Implementation standards, checkpoints, deployment gates, and governance artifacts for balanced enterprise AI adoption." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">AI</div>
+      <div>
+        <div class="brand-title">Enterprise AI Standards Portal</div>
+        <div class="brand-subtitle">Secure, Ethical, Governable AI Adoption</div>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="Primary navigation">
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="catalog">Standards</button>
+      <button class="nav-btn" data-view="checkpoints">Checkpoints</button>
+      <button class="nav-btn" data-view="evidence">Evidence</button>
+      <button class="nav-btn" data-view="deploy">Deploy</button>
+      <button id="originalSite" class="nav-btn" type="button">Original site</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="view active">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">BALANCED ENTERPRISE ARCHITECTURE FRAMEWORK</div>
+          <h1>Turn AI governance principles into deployable engineering controls.</h1>
+          <p>This portal packages implementation standards, deployment requirements, ethical and security controls, runtime checkpoints, and evidence templates into a single engineering artifact repository.</p>
+          <div class="hero-actions">
+            <button class="primary" data-go="catalog">Browse standards</button>
+            <button class="secondary" data-go="checkpoints">Run deployment checkpoint</button>
+          </div>
+        </div>
+        <div class="framework-card">
+          <div class="framework-title">Balanced AI capability</div>
+          <div class="framework-grid">
+            <span class="pill business">Business Value</span>
+            <span class="pill technology">Technology Readiness</span>
+            <span class="pill devex">Developer Enablement</span>
+            <span class="pill user">User Trust</span>
+            <span class="pill security">Security</span>
+            <span class="pill ethics">Ethics</span>
+          </div>
+          <div class="framework-enabler">Governance</div>
+          <div class="framework-enabler operating">Operating Model</div>
+        </div>
+      </div>
+
+      <section class="metrics" id="metrics"></section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">CONTROL MODEL</div>
+            <h2>Lifecycle standards hierarchy</h2>
+          </div>
+          <span class="badge">Security & ethics span every level</span>
+        </div>
+        <div class="lifecycle">
+          <div class="life-node"><b>L1</b><span>Architecture</span><small>Boundaries, data, systems of record</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-node"><b>L2</b><span>Implementation</span><small>APIs, RAG, prompts, agents</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-node"><b>L3</b><span>Build & Evaluation</span><small>Regression, safety, security</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-node"><b>L4</b><span>Deployment</span><small>Gates, rollout, rollback</small></div>
+          <div class="life-arrow">→</div>
+          <div class="life-node"><b>L5</b><span>Runtime</span><small>Trace, SLO, incidents, kill switch</small></div>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">RELEASE GOVERNANCE</div><h2>Traffic-light decision model</h2></div></div>
+          <div class="traffic-list">
+            <div><span class="light green"></span><b>Green</b><small>All mandatory controls satisfied</small></div>
+            <div><span class="light amber"></span><b>Amber</b><small>Conditional approval or exception</small></div>
+            <div><span class="light red"></span><b>Red</b><small>Mandatory control failed — block release</small></div>
+            <div><span class="light gray"></span><b>N/A</b><small>Not applicable with documented rationale</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">ARTIFACT REPOSITORY</div><h2>What teams receive</h2></div></div>
+          <ul class="feature-list">
+            <li>Normative standards with control IDs and evidence expectations</li>
+            <li>Risk-based implementation and deployment checkpoints</li>
+            <li>Security, ethics, data, agent, RAG, prompt, and transaction controls</li>
+            <li>YAML policy artifacts for automated validation</li>
+            <li>Release evidence manifest, runbooks, and production checklists</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+
+    <section id="catalog" class="view">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">STANDARDS CATALOG</div>
+          <h1>Implementation and deployment controls</h1>
+          <p>Search, filter, review, and download the standards that govern enterprise AI delivery.</p>
+        </div>
+      </div>
+      <div class="filters panel compact">
+        <input id="searchBox" type="search" placeholder="Search ID, title, keyword, evidence…" aria-label="Search standards" />
+        <select id="domainFilter" aria-label="Filter by domain"><option value="all">All domains</option></select>
+        <select id="phaseFilter" aria-label="Filter by phase"><option value="all">All phases</option></select>
+        <select id="requirementFilter" aria-label="Filter by requirement"><option value="all">All requirements</option></select>
+        <select id="riskFilter" aria-label="Filter by risk tier"><option value="all">All risk tiers</option><option>R1</option><option>R2</option><option>R3</option><option>R4</option></select>
+      </div>
+      <div class="catalog-summary" id="catalogSummary"></div>
+      <div id="artifactGrid" class="artifact-grid"></div>
+    </section>
+
+    <section id="checkpoints" class="view">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">CHECKPOINT CONSOLE</div>
+          <h1>Production readiness assessment</h1>
+          <p>Evaluate mandatory and recommended controls. Results are stored locally in your browser and can be exported as a release-assessment artifact.</p>
+        </div>
+        <div class="checkpoint-actions">
+          <select id="assessmentRisk"><option value="R2">Risk Tier R2 — Advisory</option><option value="R1">Risk Tier R1 — Informational</option><option value="R3">Risk Tier R3 — Decision Influencing</option><option value="R4">Risk Tier R4 — Autonomous / High Impact</option></select>
+          <button id="resetAssessment" class="secondary">Reset</button>
+          <button id="exportAssessment" class="primary">Export JSON</button>
+        </div>
+      </div>
+
+      <div class="assessment-overview panel">
+        <div class="readiness-score">
+          <div id="readinessRing" class="score-ring"><span id="scoreNumber">0%</span></div>
+          <div><div class="eyebrow">READINESS</div><h2 id="readinessLabel">Not assessed</h2><p id="readinessDetail">Complete the checkpoints below.</p></div>
+        </div>
+        <div id="stageSummary" class="stage-summary"></div>
+      </div>
+      <div id="checkpointStages" class="checkpoint-stages"></div>
+    </section>
+
+    <section id="evidence" class="view">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">EVIDENCE PACK</div>
+          <h1>Release evidence bundle</h1>
+          <p>Every production release should create traceable evidence that connects architecture, security, ethics, evaluation, operations, and approvals.</p>
+        </div>
+      </div>
+      <div class="grid-2 evidence-layout">
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">REQUIRED STRUCTURE</div><h2>Evidence package</h2></div></div>
+          <pre class="tree">ai-release-evidence/
+├── architecture/
+│   ├── architecture-diagram
+│   ├── data-flow
+│   └── threat-model
+├── model/
+│   ├── model-card
+│   └── provider-assessment
+├── security/
+│   ├── security-tests
+│   └── vulnerability-results
+├── ethics/
+│   ├── impact-assessment
+│   └── bias-evaluation
+├── evaluation/
+│   ├── quality-results
+│   ├── safety-results
+│   └── regression-results
+├── operations/
+│   ├── slo
+│   ├── runbook
+│   └── rollback-plan
+└── approvals/
+    └── release-decision</pre>
+        </div>
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">DOWNLOADABLE ARTIFACTS</div><h2>Templates and samples</h2></div></div>
+          <div id="evidenceDownloads" class="download-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deploy" class="view">
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">DEPLOYMENT</div>
+          <h1>Deploy the standards portal</h1>
+          <p>The package is static and can be hosted on GitHub Pages, any internal web server, object storage, or a documentation platform.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">GITHUB PAGES</div><h2>Recommended path</h2></div></div>
+          <ol class="steps">
+            <li>Copy the project into a GitHub repository.</li>
+            <li>Push to the <code>main</code> branch.</li>
+            <li>Open <b>Settings → Pages</b>.</li>
+            <li>Select <b>GitHub Actions</b> as the source.</li>
+            <li>The included workflow publishes the portal.</li>
+          </ol>
+          <a class="download-btn" href=".github/workflows/pages.yml" download>Download pages.yml</a>
+        </div>
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">LOCAL VALIDATION</div><h2>Run before publishing</h2></div></div>
+          <pre class="code">python3 -m http.server 8080
+# Open http://localhost:8080</pre>
+          <p class="muted">No Node.js, package manager, database, or build pipeline is required.</p>
+          <a class="download-btn secondary-link" href="preview.html?file=README.md" target="_blank" rel="noopener noreferrer">Preview README</a>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="section-head"><div><div class="eyebrow">AUTOMATION TARGET</div><h2>Integrate policy gates into CI/CD</h2></div></div>
+        <div class="pipeline">
+          <span>Source</span><i>→</i><span>Static analysis</span><i>→</i><span>Secret scan</span><i>→</i><span>AI policy validation</span><i>→</i><span>Prompt / RAG tests</span><i>→</i><span>Security & ethics</span><i>→</i><span>Deployment gate</span>
+        </div>
+        <div class="policy-links" id="policyDownloads"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog id="artifactDialog" class="artifact-dialog">
+    <button class="dialog-close" id="dialogClose" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer>
+    <span>Enterprise AI Standards & Governance Portal</span>
+    <span>Framework → Standards → Gates → Evidence → Runtime Assurance → Business Outcome</span>
+  </footer>
+
+  <script src="data/artifacts.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+policy:
+  id: deployment
+  version: 1.0
+  decision: block_on_mandatory_failure
+  controls:
+    - AI-DEP-001
+    - AI-DEP-002
+    - AI-DEP-003
+    - AI-DEP-004
+    - AI-DEP-005
+    - AI-GOV-002
+    - AI-GOV-003
+  traffic_light:
+    green: all_mandatory_controls_satisfied
+    amber: approved_exception_with_expiry_and_compensating_controls
+    red: mandatory_control_failed
+    na: documented_not_applicable_rationale

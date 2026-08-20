@@ -1,0 +1,21 @@
+.preview-page { min-height: 100vh; }
+.preview-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(1rem, 4vw, 2.5rem); border-top: 5px solid var(--teal); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.96); }
+.preview-brand { color: var(--navy); font-weight: 850; text-decoration: none; }
+.preview-actions { display: flex; flex-wrap: wrap; gap: .65rem; }
+.preview-actions a { display: inline-flex; align-items: center; text-decoration: none; font-size: .82rem; }
+.preview-shell { width: min(900px, calc(100% - 2rem)); margin: 0 auto; padding: 2.5rem 0 5rem; }
+.markdown-preview { margin-top: .75rem; padding: clamp(1.4rem, 4vw, 3rem); border: 1px solid var(--line); border-radius: 1rem; background: #fff; box-shadow: var(--shadow); line-height: 1.65; }
+.markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { color: var(--navy); line-height: 1.25; }
+.markdown-preview h1 { margin: 0 0 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: clamp(1.8rem, 5vw, 2.7rem); }
+.markdown-preview h2 { margin: 2rem 0 .7rem; font-size: 1.4rem; }
+.markdown-preview h3 { margin: 1.6rem 0 .6rem; font-size: 1.15rem; }
+.markdown-preview p { margin: .65rem 0; }
+.markdown-preview ul, .markdown-preview ol { padding-left: 1.5rem; }
+.markdown-preview li { margin: .45rem 0; }
+.markdown-preview code { padding: .12rem .32rem; border-radius: .3rem; background: #edf2f7; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+.markdown-preview pre { overflow-x: auto; padding: 1rem; border-radius: .7rem; background: #0f2235; color: #dce8f4; }
+.markdown-preview pre code { padding: 0; background: transparent; color: inherit; }
+.markdown-preview .artifact-code { margin: 0; min-height: 20rem; white-space: pre; tab-size: 2; }
+.markdown-preview input[type="checkbox"] { margin-right: .55rem; accent-color: var(--teal); }
+.preview-error { color: #a23b2f; }
+@media(max-width: 640px) { .preview-header { align-items: flex-start; flex-direction: column; } }

@@ -1,0 +1,9 @@
+policy:
+  id: ethics
+  version: 1.0
+  decision: block_on_mandatory_failure
+  controls:
+    - AI-ETH-001
+    - AI-ETH-002
+    - AI-ETH-003
+  enhanced_review_for: [R3, R4]
