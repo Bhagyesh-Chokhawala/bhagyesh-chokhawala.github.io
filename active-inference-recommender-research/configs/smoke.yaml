@@ -1,0 +1,57 @@
+experiment:
+  name: smoke
+  dataset: synthetic
+  seeds: [7]
+  device: cpu
+  artifact_dir: artifacts
+data:
+  raw_dir: data/raw/synthetic
+  split: leave_last_two
+  diversity_dimensions: 8
+  diversity_seed: 7
+training:
+  epochs: 2
+  batch_size: 32
+  embedding_dim: 16
+  lr: 0.005
+  weight_decay: 0.0001
+  patience: 2
+  num_workers: 0
+bpr:
+  batch_size: 32
+  samples_per_epoch: 256
+lightgcn:
+  layers: 1
+  batch_size: 64
+  samples_per_epoch: 256
+sasrec:
+  batch_size: 32
+  max_seq_len: 10
+  heads: 2
+  blocks: 1
+  dropout: 0.1
+  samples_per_epoch: 256
+evaluation:
+  batch_size: 256
+  k: 10
+  full_catalog: true
+  candidate_pool_size: 20
+  exclude_validation_from_candidates: true
+efe:
+  base_model: sasrec
+  monte_carlo_samples: 32
+  temperature: 1.0
+  preference_engagement: 0.90
+  posterior_variance_floor: 0.03
+  posterior_variance_ceiling: 1.50
+  base_variance: 0.35
+  history_variance_weight: 0.65
+  pragmatic_weight: 1.0
+  epistemic_weight: 0.8
+  risk_weight: 0.5
+  ambiguity_weight: 0.4
+  state_dependent_weights: true
+reporting:
+  bootstrap_samples: 100
+  confidence: 0.95
+  formats: [csv, png]

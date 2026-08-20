@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EFE Recommender POC</title>
+  <style>
+    :root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #17202a; background:#f6f7f9; }
+    body { margin:0; }
+    header { padding:24px 28px; background:#fff; border-bottom:1px solid #ddd; }
+    h1 { margin:0 0 6px; font-size:24px; }
+    header p { margin:0; color:#586069; }
+    main { max-width:1180px; margin:24px auto; padding:0 20px 40px; display:grid; grid-template-columns:320px 1fr; gap:22px; }
+    .panel { background:#fff; border:1px solid #ddd; border-radius:12px; padding:18px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    label { display:block; font-weight:650; margin-top:14px; margin-bottom:6px; }
+    select, input[type=range] { width:100%; }
+    select { padding:9px; border-radius:8px; border:1px solid #bbb; background:#fff; }
+    button { border:0; border-radius:8px; padding:9px 12px; cursor:pointer; font-weight:650; }
+    .primary { background:#17202a; color:white; width:100%; margin-top:18px; padding:11px; }
+    .secondary { background:#eef1f4; }
+    .feedback { margin-right:6px; margin-top:8px; }
+    .belief { font-size:13px; line-height:1.5; background:#f7f8fa; padding:10px; border-radius:8px; overflow:auto; }
+    .rec { border-top:1px solid #e7e7e7; padding:16px 0; }
+    .rec:first-child { border-top:0; }
+    .rank { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#eef1f4; margin-right:8px; }
+    .score { float:right; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .explanation { color:#4c5560; margin:8px 0; }
+    .trace { display:grid; grid-template-columns:repeat(5, minmax(90px,1fr)); gap:8px; }
+    .metric { background:#f7f8fa; padding:8px; border-radius:8px; font-size:12px; }
+    .metric strong { display:block; font-size:14px; margin-top:2px; }
+    .weights { color:#69727d; font-size:12px; margin-top:8px; }
+    .note { font-size:12px; color:#6c757d; margin-top:12px; }
+    .status { min-height:20px; color:#345; font-size:13px; margin-top:10px; }
+    @media (max-width: 820px) { main { grid-template-columns:1fr; } .trace { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Active Inference / EFE Recommender POC</h1>
+  <p>Candidate retrieval → belief-aware EFE re-ranking → explanation trace → feedback → belief update.</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Controls</h2>
+    <label for="user">User belief state</label>
+    <select id="user"></select>
+
+    <label for="exploration">Exploration preference: <span id="explorationValue">0.50</span></label>
+    <input id="exploration" type="range" min="0" max="1" value="0.5" step="0.05" />
+
+    <label for="risk">Exposure-risk control: <span id="riskValue">1.00</span></label>
+    <input id="risk" type="range" min="0" max="2" value="1" step="0.1" />
+
+    <label for="topk">Top K</label>
+    <select id="topk"><option>3</option><option selected>5</option><option>8</option></select>
+
+    <button class="primary" id="recommend">Generate recommendations</button>
+    <div class="status" id="status"></div>
+
+    <h3>Current belief</h3>
+    <pre class="belief" id="belief"></pre>
+    <button class="secondary" id="reset">Reset demo state</button>
+    <p class="note">Lower EFE is better. Feedback changes the belief vector and reduces uncertainty.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Ranked items and intrinsic explanation</h2>
+    <div id="results">Choose a user and generate recommendations.</div>
+  </section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let users = [];
+
+async function loadUsers() {
+  users = await fetch('/api/users').then(r => r.json());
+  $('user').innerHTML = users.map(u => `<option value="${u.user_id}">${u.user_id} — uncertainty ${u.uncertainty.toFixed(2)}</option>`).join('');
+  await showBelief();
+}
+
+async function showBelief() {
+  const b = await fetch(`/api/users/${$('user').value}/belief`).then(r => r.json());
+  $('belief').textContent = JSON.stringify(b, null, 2);
+}
+
+function metric(label, value) {
+  return `<div class="metric">${label}<strong>${Number(value).toFixed(3)}</strong></div>`;
+}
+
+async function recommend() {
+  $('status').textContent = 'Scoring candidates...';
+  const user = $('user').value;
+  const topk = $('topk').value;
+  const exploration = $('exploration').value;
+  const risk = $('risk').value;
+  const data = await fetch(`/api/recommendations/${user}?top_k=${topk}&candidate_limit=8&exploration=${exploration}&risk_control=${risk}`).then(r => r.json());
+  $('results').innerHTML = data.recommendations.map(rec => `
+    <article class="rec">
+      <div><span class="rank">${rec.rank}</span><strong>${rec.title}</strong><span class="score">EFE ${rec.trace.efe_score.toFixed(3)}</span></div>
+      <p class="explanation">${rec.explanation}</p>
+      <div class="trace">
+        ${metric('Pragmatic ↓', rec.trace.pragmatic_mismatch)}
+        ${metric('Epistemic ↑', rec.trace.epistemic_value)}
+        ${metric('Exposure risk ↓', rec.trace.exposure_risk)}
+        ${metric('Ambiguity ↓', rec.trace.ambiguity)}
+        ${metric('Engagement ↑', rec.trace.predicted_engagement)}
+      </div>
+      <div class="weights">Effective weights: pragmatic ${rec.trace.effective_weights.pragmatic.toFixed(2)}, epistemic ${rec.trace.effective_weights.epistemic.toFixed(2)}, risk ${rec.trace.effective_weights.risk.toFixed(2)}, ambiguity ${rec.trace.effective_weights.ambiguity.toFixed(2)}</div>
+      <button class="secondary feedback" onclick="feedback('${rec.item_id}','like')">Like</button>
+      <button class="secondary feedback" onclick="feedback('${rec.item_id}','dislike')">Dislike</button>
+      <button class="secondary feedback" onclick="feedback('${rec.item_id}','click')">Click</button>
+      <button class="secondary feedback" onclick="feedback('${rec.item_id}','skip')">Skip</button>
+    </article>`).join('');
+  $('status').textContent = `Scored ${data.candidate_count} candidates.`;
+  await showBelief();
+}
+
+async function feedback(itemId, outcome) {
+  const res = await fetch('/api/feedback', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({user_id:$('user').value, item_id:itemId, outcome})});
+  const data = await res.json();
+  $('status').textContent = data.message;
+  await showBelief();
+  await recommend();
+}
+
+$('exploration').addEventListener('input', () => $('explorationValue').textContent = Number($('exploration').value).toFixed(2));
+$('risk').addEventListener('input', () => $('riskValue').textContent = Number($('risk').value).toFixed(2));
+$('user').addEventListener('change', showBelief);
+$('recommend').addEventListener('click', recommend);
+$('reset').addEventListener('click', async () => { await fetch('/api/reset', {method:'POST'}); await loadUsers(); $('results').textContent='Demo state reset. Generate recommendations again.'; $('status').textContent='Reset complete.'; });
+loadUsers();
+</script>
+</body>
+</html>

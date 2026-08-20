@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: efe-recommender-research
+Version: 0.2.0
+Summary: Reproducible experiments for intrinsically explainable recommendation via Expected Free Energy decomposition
+Requires-Python: >=3.11
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: pandas<3,>=2.1
+Requires-Dist: scipy<2,>=1.11
+Requires-Dist: scikit-learn<2,>=1.4
+Requires-Dist: torch<3,>=2.2
+Requires-Dist: PyYAML<7,>=6
+Requires-Dist: matplotlib<4,>=3.8
+Requires-Dist: tqdm<5,>=4.66
+Requires-Dist: fastapi<1,>=0.110
+Requires-Dist: uvicorn<1,>=0.27
+Requires-Dist: pydantic<3,>=2.6
+Provides-Extra: dev
+Requires-Dist: pytest<10,>=8; extra == "dev"
+Requires-Dist: httpx<1,>=0.27; extra == "dev"

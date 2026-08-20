@@ -1,0 +1,16 @@
+.venv/
+.venv-workers/
+node_modules/
+python_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+artifacts/**
+!artifacts/.gitkeep
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+*.zip
+*.gz

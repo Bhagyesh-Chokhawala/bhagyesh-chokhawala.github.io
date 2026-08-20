@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Active Inference Recommender Experimental Repository"
+message: "If you use this software, please cite the accompanying manuscript and the baseline/dataset papers documented in REFERENCES.md."
+type: software
+authors:
+  - family-names: Chokhawala
+    given-names: Bhagyeshkumar
+    orcid: "https://orcid.org/0009-0001-5146-832X"
+  - family-names: Mohammad
+    given-names: Atif Farid
+version: 0.2.0
+date-released: 2026-08-12

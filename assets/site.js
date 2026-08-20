@@ -9,8 +9,9 @@
     <div class="site-nav-dropdown">
       <button class="site-nav-dropdown-trigger" type="button" aria-haspopup="true">Demo Portals</button>
       <div class="site-nav-dropdown-menu">
-        <a href="/api-policy-portal/">API Policy Portal</a>
         <a href="/enterprise-ai-standards-portal/">Enterprise AI Standards Portal</a>
+        <a href="/active-inference-recommender-research/">Active Inference Recommender Research</a>
+        <a href="/api-policy-portal/">API Policy Portal</a>
       </div>
     </div>
     <a href="/contact.html" data-nav-page="contact">Contact</a>`;

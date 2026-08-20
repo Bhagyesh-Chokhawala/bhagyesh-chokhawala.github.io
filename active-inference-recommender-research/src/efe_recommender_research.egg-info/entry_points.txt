@@ -1,0 +1,2 @@
+[console_scripts]
+efe-exp = efe_recsys.cli:main

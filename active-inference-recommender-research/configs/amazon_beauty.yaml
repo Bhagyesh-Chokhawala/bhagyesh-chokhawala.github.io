@@ -1,0 +1,60 @@
+experiment:
+  name: amazon_beauty_main
+  dataset: amazon_beauty
+  seeds: [7, 17, 27]
+  device: auto
+  artifact_dir: artifacts
+
+data:
+  raw_dir: data/raw/amazon_beauty
+  min_user_interactions: 5
+  min_item_interactions: 5
+  split: leave_last_two
+  diversity_dimensions: 64
+  diversity_seed: 2026
+training:
+  epochs: 60
+  batch_size: 512
+  embedding_dim: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  patience: 7
+  num_workers: 0
+bpr:
+  batch_size: 512
+  samples_per_epoch: 120000
+lightgcn:
+  layers: 3
+  batch_size: 4096
+  samples_per_epoch: 32768
+sasrec:
+  batch_size: 256
+  max_seq_len: 50
+  heads: 2
+  blocks: 2
+  dropout: 0.2
+  samples_per_epoch: 80000
+evaluation:
+  batch_size: 256
+  k: 10
+  full_catalog: true
+  candidate_pool_size: 100
+  exclude_validation_from_candidates: true
+efe:
+  base_model: sasrec
+  monte_carlo_samples: 96
+  temperature: 1.0
+  preference_engagement: 0.90
+  posterior_variance_floor: 0.03
+  posterior_variance_ceiling: 1.50
+  base_variance: 0.45
+  history_variance_weight: 0.75
+  pragmatic_weight: 1.0
+  epistemic_weight: 0.8
+  risk_weight: 0.5
+  ambiguity_weight: 0.4
+  state_dependent_weights: true
+reporting:
+  bootstrap_samples: 1000
+  confidence: 0.95
+  formats: [csv, latex, png, pdf]

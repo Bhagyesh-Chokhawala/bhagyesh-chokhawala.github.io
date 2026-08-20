@@ -1,0 +1,14 @@
+[project]
+name = "active-inference-recommender"
+version = "1.0.0"
+description = "Explainable active-inference recommender research demonstration"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115",
+]
+
+[dependency-groups]
+dev = [
+    "workers-py",
+    "workers-runtime-sdk",
+]
