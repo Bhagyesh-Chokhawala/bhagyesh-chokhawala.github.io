@@ -1,4 +1,4 @@
-# Active Inference Recommender — Publication-Grade Experimental Repository
+# Active Inference Recommender — Experimental Repository
 
 Reproducible research implementation for **Active Inference as an Intrinsically Explainable Recommender Architecture via Epistemic-Pragmatic Score Decomposition**.
 
