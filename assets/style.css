@@ -1371,6 +1371,35 @@ img {
   color: #5f6368;
 }
 
+.meta-identifiers {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  flex-basis: 100%;
+}
+
+.meta-identifiers > span + span::before {
+  content: "|";
+  margin-right: 1.5rem;
+  color: #9aa0a6;
+}
+
+.meta-identifiers > span + span {
+  margin-left: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .meta-identifiers > span + span::before {
+    content: none;
+    margin-right: 0;
+  }
+
+  .meta-identifiers > span + span {
+    margin-left: 0;
+  }
+}
+
 .publication-card h2,
 .blog-card h3 {
   text-wrap: balance;
