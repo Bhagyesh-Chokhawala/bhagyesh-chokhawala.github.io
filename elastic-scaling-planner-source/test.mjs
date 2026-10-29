@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {calculate} from './dist/model.mjs';
+const p={demand:2500,growth:8,tested:500,util:70,replicas:8,readyPercent:100,delay:110,margin:20,minimum:2,maximum:30,dependency:10000,queue:5000,wait:2,queued:0,active:0,unresolved:0,sessions:0,regions:2,azs:3,azCapacity:30000,regionLoss:1,azLoss:1,latency:140,edge:15,app:15,db:80,response:5,latencyMargin:25};
+const r=calculate(p);assert.equal(r.capacity,2800);assert.equal(r.target,11);assert.equal(r.saturation,37.5);assert.equal(r.deficit,21025);assert.equal(r.rejected,16025);assert.equal(r.survivor,60000);assert.equal(r.latencyBudget,140);
+assert.equal(calculate({...p,growth:0}).saturation,Infinity);
+assert.equal(calculate({...p,demand:3000,growth:0,delay:10}).deficit,2000);
+assert.equal(calculate({...p,queue:0}).defer,0);
+assert.equal(calculate({...p,queued:6000}).defer,0);
+assert.equal(calculate({...p,minimum:40}).conflict,true);
+assert.equal(calculate({...p,sessions:1}).drainClear,false);
+assert.equal(calculate({...p,dependency:0}).mu,0);
+assert.throws(()=>calculate({...p,tested:0}));assert.throws(()=>calculate({...p,replicas:1.5}));assert.throws(()=>calculate({...p,delay:-1}));assert.throws(()=>calculate({...p,regionLoss:3}));assert.throws(()=>calculate({...p,readyPercent:101}));
+console.log('20 calculator assertions passed');

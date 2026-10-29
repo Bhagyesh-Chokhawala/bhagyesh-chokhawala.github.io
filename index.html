@@ -120,6 +120,7 @@
         <div class="profile-demo-dropdown">
           <button class="button profile-dropdown-trigger" type="button" aria-haspopup="true">Demo Portals</button>
           <div class="profile-dropdown-menu">
+            <a href="/elastic-scaling-planner-source/dist/">Elastic Scaling Planner</a>
             <a href="/enterprise-ai-standards-portal/">Enterprise AI Standards Portal</a>
             <a href="/active-inference-recommender-research/">Active Inference Recommender Research</a>
             <a href="/api-policy-portal/">API Policy Portal</a>
@@ -147,6 +148,24 @@
     <section class="portal-showcases" aria-label="Executable research demonstrations">
       <button class="portal-carousel-control portal-carousel-previous" type="button" aria-label="Show previous demo portal" aria-controls="portal-showcase-carousel">‹</button>
       <div id="portal-showcase-carousel" class="portal-showcase-scroller" tabindex="0" aria-label="Research portal cards">
+        <article class="api-policy-showcase elastic-scaling-showcase" aria-labelledby="elastic-scaling-heading">
+          <div class="api-policy-copy">
+            <p class="eyebrow">Interactive architecture planning tool</p>
+            <h2 id="elastic-scaling-heading">Elastic Scaling Planner</h2>
+            <p class="api-policy-lead">Plan replica capacity and readiness timing against workload growth, dependency limits, and failure-domain constraints. Explore overload bridging and transaction-safe scale-in checks with calculations that run locally in your browser.</p>
+            <div class="api-policy-actions">
+              <a class="button api-policy-primary" href="/elastic-scaling-planner-source/dist/">Open the Planner</a>
+            </div>
+          </div>
+          <div class="api-policy-evidence" aria-label="Elastic Scaling Planner capabilities">
+            <div class="policy-stat"><strong>01</strong><span>Capacity target</span></div>
+            <div class="policy-stat green"><strong>02</strong><span>Readiness delay</span></div>
+            <div class="policy-stat amber"><strong>03</strong><span>Overload bridge</span></div>
+            <div class="policy-stat red"><strong>04</strong><span>Safety checks</span></div>
+            <div class="policy-evidence-note">Browser-local planning; workload inputs are not sent to a server or saved automatically.</div>
+          </div>
+        </article>
+
         <article class="api-policy-showcase enterprise-ai-showcase" aria-labelledby="enterprise-ai-heading">
           <div class="api-policy-copy">
             <p class="eyebrow">Executable research demonstration</p>
@@ -209,7 +228,6 @@
             <div class="policy-evidence-note">Executed against three reference APIs with complete policy-validation logs and downloadable reports.</div>
           </div>
         </article>
-
 
       </div>
       <button class="portal-carousel-control portal-carousel-next" type="button" aria-label="Show next demo portal" aria-controls="portal-showcase-carousel">›</button>
