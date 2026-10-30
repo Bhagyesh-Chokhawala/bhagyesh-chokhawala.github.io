@@ -1,0 +1,11 @@
+{
+  "name": "hdae-implementation-toolkit-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "uv run pywrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

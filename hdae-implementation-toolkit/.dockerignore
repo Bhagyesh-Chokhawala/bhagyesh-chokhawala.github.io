@@ -1,0 +1,7 @@
+node_modules
+.wrangler
+worker
+wrangler.jsonc
+package.json
+package-lock.json
+index.html

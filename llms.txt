@@ -12,7 +12,7 @@ Sitemap: https://bhagyesh-chokhawala.github.io/sitemap.xml
 
 Demo portals:
 - Elastic Scaling Planner (capacity, readiness delay, overload bridging, transaction-safe scaling): https://bhagyesh-chokhawala.github.io/elastic-scaling-planner-source/dist/
-- BAR-Governed HDAE Implementation Toolkit (BAR evidence gates, HDAE outcome episodes, governance artifacts; proof of concept): https://bhagyesh-chokhawala.github.io/hdae-implementation-toolkit/
+- BAR-Governed HDAE Implementation Toolkit (BAR evidence gates, HDAE outcome episodes, governance artifacts; proof of concept; live demo at https://hdae-implementation-toolkit.bhagyesh-chokhawala.workers.dev/login): https://bhagyesh-chokhawala.github.io/hdae-implementation-toolkit/
 - Enterprise AI Standards & Governance Portal: https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/
 - Active Inference Recommender Research Portal: https://bhagyesh-chokhawala.github.io/active-inference-recommender-research/
 - Outcome-Centric API Policy Portal: https://bhagyesh-chokhawala.github.io/api-policy-portal/

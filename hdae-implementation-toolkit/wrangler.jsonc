@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hdae-implementation-toolkit",
+  "main": ".worker-src/worker.py",
+  "build": {"command": "python3 prepare_worker.py"},
+  "compatibility_date": "2026-10-29",
+  "compatibility_flags": ["python_workers"],
+  "rules": [
+    {"type": "Text", "globs": ["13_Implementation/*.md"], "fallthrough": false}
+  ],
+  "d1_databases": [{
+    "binding": "STATE_DB",
+    "database_name": "hdae-toolkit-state",
+    "database_id": "f1de57e2-9855-46a1-86b2-affa3e1b8968"
+  }],
+  "migrations": [
+    { "new_sqlite_classes": ["HdaeContainer"], "tag": "v1" },
+    { "deleted_classes": ["HdaeContainer"], "tag": "v2-python" }
+  ]
+}

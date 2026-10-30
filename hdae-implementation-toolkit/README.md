@@ -42,6 +42,31 @@ PORT=8097 python wsgi.py
 
 Open `http://127.0.0.1:8097`. Demo authentication is for local demonstration only. Load either sample, inspect its 12 populated artifact records, review G0/G1 design evidence, and use the workbench to record actual G2/G3 evidence after a pilot. The demo intentionally does not claim pilot or scale evidence.
 
+## Cloudflare Workers deployment (Free plan)
+
+The hosted toolkit runs as a Python Worker using Cloudflare's Flask WSGI adapter,
+with D1 storing each session's wizard state. Containers and Docker are not needed
+for this deployment. Free-tier request, CPU, and database quotas still apply.
+
+Prerequisites: Node.js 22 or newer, `uv`, and a Cloudflare login (`npx wrangler login`).
+From this directory:
+
+```bash
+npm ci
+npx wrangler d1 execute hdae-toolkit-state --remote --file schema.sql
+uv run pywrangler deploy
+```
+
+The existing database binding is in `wrangler.jsonc`. For another account, create
+a D1 database and replace its database ID before deploying. `prepare_worker.py`
+stages application code and runbooks, excluding local environments and tooling.
+Python dependencies are declared in `pyproject.toml`; `requirements-container.txt`
+is retained only for the optional Docker deployment.
+
+Check `/health` after deployment. Sign in with the demo credentials shown on the
+login page, load a sample, and verify `/api/wizard` and the ZIP download. This
+remains a public demonstration with demo authentication.
+
 ## Evaluation
 
 The metric catalog separates BAR-B value, BAR-A readiness, HDAE episode controls and operations, and BAR-R responsible realization. The L0-L4 maturity model measures institutional capability, not model sophistication. Metric definitions and targets must be baselined and tailored before production use.
