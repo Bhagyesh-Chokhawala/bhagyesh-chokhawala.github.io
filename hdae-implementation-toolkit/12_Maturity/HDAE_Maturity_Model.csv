@@ -1,0 +1,6 @@
+Level,Name,Characteristics,Progression Evidence
+L0,Isolated assistance,"Informal intent, authority, and evidence; no delegated state-changing authority",Defined problem owner and scope
+L1,Registered agents,"Agent identity, ownership, inventory, and basic logs",Agent inventory and attributable activity logs
+L2,Bounded delegation,"Intent Envelopes, authority profiles, autonomy classification, policy decisions, and human approvals",Negative tests, revocation, and approval evidence
+L3,Governed execution,"Durable cross-domain orchestration, complete traces, tested recovery, proportional autonomy, BAR realization reviews",Controlled pilot outcomes and recovery evidence
+L4,Adaptive enterprise agents,"Reusable capabilities, contracts, controls, evaluations, and adaptive autonomy inside governed limits",Sustained value, adoption, trust, assurance, and scale decision

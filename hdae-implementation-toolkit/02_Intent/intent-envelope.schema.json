@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HDAE Intent Envelope",
+  "type": "object",
+  "required": [
+    "intent_id",
+    "why",
+    "what",
+    "who",
+    "when",
+    "where",
+    "which",
+    "accountability"
+  ],
+  "properties": {
+    "intent_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "why": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "purpose"
+      ]
+    },
+    "what": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "string"
+        },
+        "success_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "outcome",
+        "success_criteria"
+      ]
+    },
+    "who": {
+      "type": "object"
+    },
+    "when": {
+      "type": "object"
+    },
+    "where": {
+      "type": "object"
+    },
+    "which": {
+      "type": "object"
+    },
+    "accountability": {
+      "type": "object",
+      "properties": {
+        "human_owner": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "human_owner",
+        "organization"
+      ]
+    }
+  }
+}

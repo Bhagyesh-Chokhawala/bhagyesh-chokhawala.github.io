@@ -1,0 +1,28 @@
+Artifact,Purpose,MVP,Owner
+Human Intent Canvas,Capture human intent,Yes,Business Owner
+Intent Envelope,Machine-readable intent,Yes,Enterprise Architecture
+Capability-Outcome Map,Map outcome to durable abilities,Yes,Enterprise Architecture
+Autonomy-Risk Matrix,Set autonomy level,Yes,Risk + Business
+Agent Authority Profile,Define delegated action space,Yes,Security/IAM + Business
+Outcome Contract,Define governed commitment,Yes,Architecture + Domain
+Policy Pack,Runtime constraints,Yes,Risk/Policy
+Agent Manifest,"Identity, ownership, tools",Yes,AI Platform
+Runtime Control Gateway,Enforce controls before action,Yes,AI Platform
+Transaction-Recovery Map,Define failure semantics,Yes,Domain + Operations
+Evidence Schema,Traceability/provenance,Yes,Architecture + Audit
+Metrics Catalog,Evaluate value and risk,Yes,Business + Architecture
+Validation Gates,Control release,Yes,Governance
+Maturity Model,Guide scale-up,No,Enterprise Architecture
+Artifact,Paper Role,Primary Purpose,Phase,Owner
+Outcome Charter,BAR-B,Problem baseline value hypothesis owner stakeholders and AI rationale,1,Business Owner
+Enterprise Intent Canvas,HDAE,Human-readable why what who when where which and accountability,2,Business Owner
+Intent Envelope Schema,HDAE,Machine-validatable intent constraints expiry autonomy ceiling and recovery criteria,2,Enterprise Architecture
+Capability-Readiness Map,BAR-A + HDAE,Capabilities owners data systems dependencies NFRs and readiness gaps,3,Enterprise Architecture
+Outcome Contract Template,HDAE,Preconditions policies state model completion failure retry and compensation,3,Architecture + Domain
+Agent Authority Profile,BAR-R + HDAE,Principal workload identity scopes permissions prohibitions thresholds expiry and revocation,4,Security/IAM + Business
+Autonomy-Risk Matrix,BAR-R + HDAE,Align autonomy to impact uncertainty reversibility sensitivity and recovery,4,Risk + Business
+Tool and Action Registry,BAR-A + HDAE,Trusted tools schemas side effects ownership version and risk class,5,AI Platform + Domain
+Policy and Control Pack,BAR-R + HDAE,Independent decisions tests exceptions approvals and logs,5,Risk/Policy + Platform
+Transaction and Recovery Map,BAR-A/R + HDAE,State transitions idempotency retry compensation reconciliation and terminal states,6,Domain + Operations
+Traceability and Evaluation Schema,BAR-R + HDAE,Evidence links and metrics from intent through realized benefit,6,Architecture + Audit
+Governance Incident and Realization Playbook,BAR-B/A/R,Release gates monitoring incident response rollback benefit review and retirement,7,Governance + Operations

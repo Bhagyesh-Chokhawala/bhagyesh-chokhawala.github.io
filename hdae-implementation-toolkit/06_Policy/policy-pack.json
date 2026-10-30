@@ -1,0 +1,30 @@
+{
+  "policy_pack_id": "POLICY-PACK-001",
+  "rules": [
+    {
+      "id": "POL-AUTH-001",
+      "effect": "deny",
+      "when": "action not in authority_profile.allowed_actions"
+    },
+    {
+      "id": "POL-SCOPE-001",
+      "effect": "deny",
+      "when": "environment not in authority_profile.valid_environments"
+    },
+    {
+      "id": "POL-APPROVAL-001",
+      "effect": "require_approval",
+      "when": "action in authority_profile.approval_required_for"
+    },
+    {
+      "id": "POL-EVIDENCE-001",
+      "effect": "deny",
+      "when": "evidence_capture unavailable"
+    },
+    {
+      "id": "POL-RECOVERY-001",
+      "effect": "deny",
+      "when": "state_changing_action and recovery_plan missing"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+Dimension,Metric,Definition,Direction
+Intent,Intent completeness,Required intent dimensions populated,Higher
+Governance,Unauthorized action rate,Unauthorized actions attempted/executed,Lower
+Governance,Approval bypass rate,Required approvals bypassed,Zero
+Execution,Outcome success rate,Verified completions / attempts,Higher
+Execution,Cycle time,Authorization to verified completion,Lower
+Execution,Recovery success rate,Successful recoveries / recoverable failures,Higher
+Assurance,Trace completeness,Material actions with complete evidence,Higher
+Assurance,Attribution completeness,"Actions mapped to agent, principal, owner",100%
+Risk,Policy violation escape rate,Violations not blocked pre-execution,Lower
+Framework,Dimension,Metric,Definition,Direction or target
+BAR-B,Business value,Baseline-to-target improvement,Measured business change against approved baseline,Higher
+BAR-B,Business value,Benefit ownership,Target benefits with named accountable owners,100%
+BAR-A,Architecture readiness,Data readiness,Authoritative data quality and access readiness,Higher
+BAR-A,Architecture readiness,Contract and dependency coverage,Critical dependencies with owned tested contracts,Higher
+BAR-A,Architecture readiness,Availability and resilience,Service availability and tested failure recovery,Higher
+BAR-A,Architecture readiness,Lifecycle cost,Run integration assurance and change cost,Within approved case
+HDAE,Intent,Intent Coverage,Outcome episodes with complete validated intent,100%
+HDAE,Governance,Policy Mediation Rate,Material actions evaluated by independent policy controls,100%
+HDAE,Assurance,Trace Completeness,Material actions linked across intent plan policy tool transaction intervention outcome,100%
+HDAE,Governance,Unauthorized-action rate,Unauthorized actions executed,0
+HDAE,Operations,Approval latency,Time waiting for required human decisions,Measured
+HDAE,Operations,Intervention rate,Episodes requiring human intervention,Measured
+HDAE,Recovery,Compensation rate,Episodes requiring compensation or reconciliation,Measured
+HDAE,Recovery,Recovery time,Time to restore or reconcile after failure,Within SLO
+BAR-R,Responsible realization,Adoption and user trust,Use acceptance overrides and escalation patterns,Measured
+BAR-R,Responsible realization,Incident and residual-risk trend,Incidents and risk remaining after controls,Within risk appetite
+BAR-R,Realized value,Realized benefit,Sustained benefit after adoption and lifecycle cost,Positive

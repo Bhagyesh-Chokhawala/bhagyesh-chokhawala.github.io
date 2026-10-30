@@ -1,0 +1,5 @@
+Risk Dimension,Low,Medium,High,Critical
+Impact,Minor/reversible,Material/bounded,Major,Regulatory/safety critical
+Uncertainty,Low,Moderate,High,Unknown
+Reversibility,Automatic,Compensatable,Difficult,Irreversible
+Recommended autonomy,Agent-autonomous,Agent-executed,Agent-recommended,Human-only

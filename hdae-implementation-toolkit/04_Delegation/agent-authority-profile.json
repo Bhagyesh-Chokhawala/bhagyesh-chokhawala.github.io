@@ -1,0 +1,30 @@
+{
+  "agent_id": "agent-example-001",
+  "represented_principal": "role:owner",
+  "autonomy_level": "agent-executed",
+  "allowed_capabilities": [
+    "CAP-001"
+  ],
+  "allowed_actions": [
+    "read_context",
+    "plan",
+    "invoke_outcome_contract",
+    "monitor",
+    "retry"
+  ],
+  "prohibited_actions": [
+    "grant_permissions",
+    "change_policy",
+    "delete_evidence",
+    "expand_scope"
+  ],
+  "approval_required_for": [
+    "high_risk_action",
+    "scope_change",
+    "irreversible_action"
+  ],
+  "valid_environments": [
+    "nonprod"
+  ],
+  "expires_at": "2027-01-01T00:00:00Z"
+}

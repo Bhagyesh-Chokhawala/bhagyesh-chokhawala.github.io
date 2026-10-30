@@ -1,0 +1,2 @@
+Capability ID,Capability,Outcome,Owner,Policies,Contracts/APIs,System of Record,Health Metric
+CAP-001,Example Capability,Authorized enterprise outcome,Business Owner,POL-AUTH-001,OUTCOME-001,Authoritative System,success_rate

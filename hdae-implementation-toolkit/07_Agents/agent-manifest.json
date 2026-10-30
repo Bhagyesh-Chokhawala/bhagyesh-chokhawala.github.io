@@ -1,0 +1,27 @@
+{
+  "agent_id": "agent-example-001",
+  "version": "1.0.0",
+  "business_owner": "Business Owner",
+  "technical_owner": "AI Platform",
+  "purpose": "Perform delegated operational work for approved outcomes",
+  "allowed_capabilities": [
+    "CAP-001"
+  ],
+  "tools": [
+    {
+      "tool_id": "tool-context-read",
+      "type": "read",
+      "risk": "low"
+    },
+    {
+      "tool_id": "tool-outcome-execute",
+      "type": "state_change",
+      "risk": "medium"
+    }
+  ],
+  "human_intervention": {
+    "pause": true,
+    "cancel": true,
+    "override": true
+  }
+}

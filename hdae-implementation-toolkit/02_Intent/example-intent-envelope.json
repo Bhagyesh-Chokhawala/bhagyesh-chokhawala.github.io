@@ -1,0 +1,52 @@
+{
+  "intent_id": "INTENT-001",
+  "version": "1.0",
+  "why": {
+    "purpose": "Fulfill an approved enterprise outcome safely and efficiently"
+  },
+  "what": {
+    "outcome": "Complete the authorized multi-system outcome",
+    "success_criteria": [
+      "Outcome verified",
+      "No policy violation",
+      "Evidence complete"
+    ]
+  },
+  "who": {
+    "requestor": "role:requestor",
+    "business_owner": "role:owner",
+    "approvers": [
+      "role:risk-approver"
+    ]
+  },
+  "when": {
+    "expires_at": null,
+    "escalation_conditions": [
+      "risk_threshold_exceeded",
+      "repeated_failure"
+    ]
+  },
+  "where": {
+    "business_units": [
+      "approved-unit"
+    ],
+    "environments": [
+      "nonprod"
+    ]
+  },
+  "which": {
+    "policies": [
+      "POL-AUTH-001",
+      "POL-RISK-001"
+    ],
+    "risk_tolerance": "low",
+    "prohibited_actions": [
+      "self_grant_authority",
+      "bypass_approval"
+    ]
+  },
+  "accountability": {
+    "human_owner": "role:owner",
+    "organization": "example-enterprise"
+  }
+}

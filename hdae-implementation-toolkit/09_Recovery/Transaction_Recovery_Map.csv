@@ -1,0 +1,4 @@
+Action,State Change,Idempotency,Retry,Compensation,Timeout,Owner,Escalation
+Read context,No,No,Yes,N/A,30s,Data Owner,Operations
+Update domain state,Yes,Yes,Bounded,Required,60s,Domain Owner,Business Owner
+Cross-domain outcome,Yes,Yes,Workflow retry,Saga/compensation,5m,Outcome Owner,Incident Commander

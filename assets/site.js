@@ -10,6 +10,7 @@
       <button class="site-nav-dropdown-trigger" type="button" aria-haspopup="true">Demo Portals</button>
       <div class="site-nav-dropdown-menu">
         <a href="/elastic-scaling-planner-source/dist/">Elastic Scaling Planner</a>
+        <a href="/hdae-implementation-toolkit/">HDAE Implementation Toolkit</a>
         <a href="/enterprise-ai-standards-portal/">Enterprise AI Standards Portal</a>
         <a href="/active-inference-recommender-research/">Active Inference Recommender Research</a>
         <a href="/api-policy-portal/">API Policy Portal</a>

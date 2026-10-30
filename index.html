@@ -58,6 +58,15 @@
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://bhagyesh-chokhawala.github.io/hdae-implementation-toolkit/#application",
+        "name": "BAR-Governed HDAE Implementation Toolkit",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web (Flask), Docker",
+        "url": "https://bhagyesh-chokhawala.github.io/hdae-implementation-toolkit/",
+        "description": "A proof-of-concept toolkit for the BAR-HDAE dual-loop model with BAR evidence gates, a seven-phase outcome-episode workflow, and twelve governance artifacts."
+      },
+      {
+        "@type": "SoftwareApplication",
         "@id": "https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/#application",
         "name": "Enterprise AI Standards & Governance Portal",
         "applicationCategory": "BusinessApplication",
@@ -131,6 +140,7 @@
           <button class="button profile-dropdown-trigger" type="button" aria-haspopup="true">Demo Portals</button>
           <div class="profile-dropdown-menu">
             <a href="/elastic-scaling-planner-source/dist/">Elastic Scaling Planner</a>
+            <a href="/hdae-implementation-toolkit/">HDAE Implementation Toolkit</a>
             <a href="/enterprise-ai-standards-portal/">Enterprise AI Standards Portal</a>
             <a href="/active-inference-recommender-research/">Active Inference Recommender Research</a>
             <a href="/api-policy-portal/">API Policy Portal</a>
@@ -175,6 +185,26 @@
             <div class="policy-stat amber"><strong>03</strong><span>Overload bridge</span></div>
             <div class="policy-stat red"><strong>04</strong><span>Safety checks</span></div>
             <div class="policy-evidence-note">Browser-local planning; workload inputs are not sent to a server or saved automatically.</div>
+          </div>
+        </article>
+
+        <article class="api-policy-showcase hdae-showcase" aria-labelledby="hdae-heading">
+          <div class="api-policy-copy">
+            <p class="eyebrow">Proof-of-concept implementation toolkit</p>
+            <h2 id="hdae-heading">BAR-Governed HDAE Implementation Toolkit</h2>
+            <p class="api-policy-lead">Operationalize the BAR-HDAE dual-loop model: BAR evidence gates decide whether and how far to adopt and scale an AI capability, while the HDAE outcome episode governs how one authorized human outcome is planned, mediated, executed, verified, and recovered. The underlying manuscript is conceptual and not empirically validated.</p>
+            <div class="api-policy-actions">
+              <a class="button api-policy-primary" href="/hdae-implementation-toolkit/">Open the Toolkit</a>
+              <a class="button" href="https://github.com/Bhagyesh-Chokhawala/HDAE_Implementation_Toolkit/blob/main/14_Architecture/HDAE_Reference_Architecture.md" target="_blank" rel="noopener noreferrer">Reference Architecture</a>
+              <a class="button" href="https://github.com/Bhagyesh-Chokhawala/HDAE_Implementation_Toolkit" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </div>
+          </div>
+          <div class="api-policy-evidence" aria-label="HDAE Implementation Toolkit summary">
+            <div class="policy-stat"><strong>12</strong><span>Governance artifacts</span></div>
+            <div class="policy-stat green"><strong>7</strong><span>HDAE phases</span></div>
+            <div class="policy-stat amber"><strong>4</strong><span>BAR evidence gates</span></div>
+            <div class="policy-stat red"><strong>2</strong><span>Governance loops</span></div>
+            <div class="policy-evidence-note">Run the interactive Flask workbench locally with Docker; instructions are on the toolkit page.</div>
           </div>
         </article>
 
