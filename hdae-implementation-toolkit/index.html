@@ -34,7 +34,7 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web (Flask), Docker",
     "url": "https://bhagyesh-chokhawala.github.io/hdae-implementation-toolkit/",
-    "codeRepository": "https://github.com/Bhagyesh-Chokhawala/HDAE_Implementation_Toolkit",
+    "codeRepository": "https://github.com/Bhagyesh-Chokhawala/bhagyesh-chokhawala.github.io/tree/main/hdae-implementation-toolkit",
     "description": "A proof-of-concept toolkit for the BAR-HDAE dual-loop model with BAR evidence gates, a seven-phase HDAE outcome-episode workflow, and twelve governance artifacts.",
     "author": {"@type": "Person", "name": "Bhagyeshkumar Chokhawala", "url": "https://bhagyesh-chokhawala.github.io/"}
   }
@@ -65,7 +65,7 @@
       <div class="hdae-actions">
         <a class="button" href="/">Original site</a>
         <a class="button" href="https://hdae-implementation-toolkit.bhagyesh-chokhawala.workers.dev/login" target="_blank" rel="noopener noreferrer">Open the live demo</a>
-        <a class="button" href="https://github.com/Bhagyesh-Chokhawala/HDAE_Implementation_Toolkit" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+        <a class="button" href="https://github.com/Bhagyesh-Chokhawala/bhagyesh-chokhawala.github.io/tree/main/hdae-implementation-toolkit" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
         <a class="button" href="https://github.com/Bhagyesh-Chokhawala/bhagyesh-chokhawala.github.io/blob/main/hdae-implementation-toolkit/README.md" target="_blank" rel="noopener noreferrer">Read the README</a>
         <a class="button" href="https://github.com/Bhagyesh-Chokhawala/bhagyesh-chokhawala.github.io/blob/main/hdae-implementation-toolkit/14_Architecture/HDAE_Reference_Architecture.md" target="_blank" rel="noopener noreferrer">Reference architecture</a>
       </div>
@@ -83,11 +83,11 @@
 
       <h2>Run the interactive demo</h2>
       <p>A hosted demo runs on Cloudflare at <a href="https://hdae-implementation-toolkit.bhagyesh-chokhawala.workers.dev/login" target="_blank" rel="noopener noreferrer">hdae-implementation-toolkit.bhagyesh-chokhawala.workers.dev</a> (demo sign-in is shown on the login page). The first load after idle can take a few seconds. To run it yourself with Docker:</p>
-      <pre class="hdae-code"><code>git clone https://github.com/Bhagyesh-Chokhawala/HDAE_Implementation_Toolkit.git
-cd HDAE_Implementation_Toolkit
+      <pre class="hdae-code"><code>git clone https://github.com/Bhagyesh-Chokhawala/bhagyesh-chokhawala.github.io.git
+cd bhagyesh-chokhawala.github.io/hdae-implementation-toolkit
 docker build -t hdae-toolkit .
 docker run --rm -p 8000:8000 -e SECRET_KEY="change-me" hdae-toolkit</code></pre>
-      <p>Open <code>http://127.0.0.1:8000</code>. The demo sign-in is for local demonstration only (user <code>admin</code>, password <code>hdae-admin</code>). Without Docker, create a virtual environment, run <code>pip install -r requirements.txt</code>, and start <code>PORT=8000 python wsgi.py</code>.</p>
+      <p>Open <code>http://127.0.0.1:8000</code>. The demo sign-in is for local demonstration only (user <code>admin</code>, password <code>hdae-admin</code>). Without Docker, create a virtual environment, run <code>pip install -r requirements-container.txt</code>, and start <code>PORT=8000 python wsgi.py</code>.</p>
 
       <h2>Browse the documents</h2>
       <ul>
