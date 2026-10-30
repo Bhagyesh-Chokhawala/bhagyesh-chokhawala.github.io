@@ -1,0 +1,3 @@
+# Same-host URLs hosted outside this repository (one absolute HTTPS URL per line).
+# All current portals, including the Elastic Scaling Planner, live in this repository
+# and are discovered automatically, so this list is intentionally empty.
