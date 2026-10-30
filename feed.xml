@@ -5,7 +5,28 @@
     <link>https://bhagyesh-chokhawala.github.io/blogs.html</link>
     <description>Enterprise architecture, applied AI, modernization, and digital transformation stories.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Your Autoscaler Added More Servers. Why Did Customers Still See Errors?</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/your-autoscaler-added-more-servers-why-did-customers-still-see-errors-2d8c83b8c716?postPublishedType=initial</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/your-autoscaler-added-more-servers-why-did-customers-still-see-errors-2d8c83b8c716?postPublishedType=initial</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Autoscaling can add instances and still leave customers facing slow requests and failed transactions. This story explains why scaling must account for when capacity becomes usable and how accepted work survives the transition.</description>
+    </item>
+    <item>
+      <title>Why enterprise scaling needs capacity-based math, a clock, and a transaction-safety model.</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/why-enterprise-scaling-needs-capacity-based-math-a-clock-and-a-transaction-safety-model-d24e66d77f0c</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/why-enterprise-scaling-needs-capacity-based-math-a-clock-and-a-transaction-safety-model-d24e66d77f0c</guid>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Extends capacity-based autoscaling with measured time-to-capacity, scaling-bridge controls, dependency limits, and transaction safeguards that prevent accepted work from being lost or duplicated.</description>
+    </item>
+    <item>
+      <title>The Future Enterprise Stack: Building Human-Centric Enterprises with AI Agents</title>
+      <link>https://medium.com/@bhagyesh.chokhawala/the-future-enterprise-stack-building-human-centric-enterprises-with-ai-agents-266287e2c304</link>
+      <guid isPermaLink="true">https://medium.com/@bhagyesh.chokhawala/the-future-enterprise-stack-building-human-centric-enterprises-with-ai-agents-266287e2c304</guid>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Explores a human-directed, agent-executed enterprise stack in which people own intent, AI agents perform delegated work, and technology provides governed enablement and control.</description>
+    </item>
     <item>
       <title>Capability-Centric Enterprise Architecture for Business-Technology Alignment and AI Adoption</title>
       <link>https://pub.towardsai.net/capability-centric-enterprise-architecture-for-business-technology-alignment-and-ai-adoption-c438abcee0e5</link>

@@ -6,6 +6,16 @@ Canonical profile: https://bhagyesh-chokhawala.github.io/
 Publications: https://bhagyesh-chokhawala.github.io/publications.html
 Blog stories: https://bhagyesh-chokhawala.github.io/blogs.html
 Contact: https://bhagyesh-chokhawala.github.io/contact.html
+Upcoming publications: https://bhagyesh-chokhawala.github.io/upcomingpublications.html
+RSS feed: https://bhagyesh-chokhawala.github.io/feed.xml
+Sitemap: https://bhagyesh-chokhawala.github.io/sitemap.xml
+
+Demo portals:
+- Elastic Scaling Planner (capacity, readiness delay, overload bridging, transaction-safe scaling): https://bhagyesh-chokhawala.github.io/elastic-scaling-planner-source/dist/
+- Enterprise AI Standards & Governance Portal: https://bhagyesh-chokhawala.github.io/enterprise-ai-standards-portal/
+- Active Inference Recommender Research Portal: https://bhagyesh-chokhawala.github.io/active-inference-recommender-research/
+- Outcome-Centric API Policy Portal: https://bhagyesh-chokhawala.github.io/api-policy-portal/
+
 Google Scholar: https://scholar.google.com/citations?user=0yKHjlQAAAAJ&hl=en
 ORCID: https://orcid.org/0009-0001-5146-832X
 
@@ -16,3 +26,4 @@ Primary topics:
 - Enterprise Architecture and Capability Mapping
 - AI Governance and Responsible Adoption
 - Transaction Integrity and Software Modernization
+- Elastic Scaling, Autoscaling, and Distributed Systems
